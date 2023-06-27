@@ -1,0 +1,93 @@
+.burger {
+	position: relative;
+}
+.burger .card {
+	height: 475px;
+	margin-bottom: 20px;
+}
+.burger .card img {
+	min-height: 253px;
+	object-fit: cover;
+}
+/* Burder Details style */
+.burger-details {
+	position: relative;
+	overflow-x: hidden;
+}
+
+.burger-details .card img {
+	width: 500px;
+	height: 350px !important;
+	object-fit: cover;
+}
+
+/* Small devices (up to 576px) */
+@media (max-width: 576px) {
+	.burger-details .card img {
+		width: 100%;
+		height: 200px !important;
+	}
+}
+
+/* Medium devices (between 577px and 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+	.burger-details .card img {
+		width: 100%;
+		height: 250px !important;
+	}
+}
+
+/* Large devices (between 769px and 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+	.burger-details .card img {
+		width: 100%;
+		height: 300px !important;
+	}
+}
+
+/* Extra-large devices (above 992px) */
+@media (min-width: 993px) {
+	.burger-details .card img {
+		width: 500px;
+		height: 350px !important;
+	}
+}
+
+.burger-details .card {
+	border: none;
+}
+.burger-details .meal_btn button {
+	margin-bottom: 10px;
+}
+
+.product {
+	background-color: #eee;
+}
+.brand {
+	font-size: 13px;
+}
+.act-price {
+	color: red;
+	font-weight: 700;
+}
+
+.btn-danger {
+	background-color: #ff0000 !important;
+	border-color: #ff0000 !important;
+}
+.btn-danger:hover {
+	background-color: #da0606 !important;
+	border-color: #da0606 !important;
+}
+.btn-danger:focus {
+	box-shadow: none;
+}
+.cart i {
+	margin-right: 10px;
+}
+
+/* meal_btn */
+
+.meal_btn {
+	font-size: 11px;
+}
