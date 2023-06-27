@@ -93,25 +93,13 @@ const BurderDetailsComponent = () => {
 												{burger.fiber}
 											</span>
 											<span>
-												<i className="fa fa-chevron-right ms-2"></i>Protein:{" "}
+												<i className="fa fa-chevron-right ms-2"></i> Protein:{" "}
 												{burger.protein}
 											</span>
 											<span>
 												<i className="fa fa-chevron-right ms-2"></i> Carbs:{" "}
 												{burger.carbs}
 											</span>
-											{/* <button className="btn btn-outline-success btn-sm me-2">
-												Calories: {burger.calories}
-											</button>
-											<button className="btn btn-outline-dark btn-sm me-2">
-												Fiber: {burger.fiber}
-											</button>
-											<button className="btn btn-outline-info btn-sm me-2">
-												Protein: {burger.protein}
-											</button>
-											<button className="btn btn-outline-success btn-sm me-2">
-												Carbs: {burger.carbs}
-											</button> */}
 										</div>
 										<div className="cart mt-4 align-items-center">
 											<button className="btn btn-outline-danger w-50 btn-lg text-uppercase fw-bold">
