@@ -9,6 +9,7 @@ import Loading from "../utils/Loading";
 
 const BurgerListComponent = () => {
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
 	const [burgers, setBurger] = useState([]);
 	// console.log(burgers);
 
@@ -20,6 +21,7 @@ const BurgerListComponent = () => {
 					setLoading(false);
 				})
 				.catch((error) => {
+					setError(error);
 					toast.warn(`An Error ${error} has occured!!`, {
 						position: "bottom-right",
 					});
@@ -43,6 +45,10 @@ const BurgerListComponent = () => {
 						<div className="loading">
 							<Loading />
 						</div>
+					) : error ? (
+						<div className="alert alert-danger text-center">
+							<h5>{error.message}</h5>
+						</div>
 					) : (
 						<>
 							<h1 className="text-danger">Vast Burgers</h1> <hr />
@@ -50,11 +56,13 @@ const BurgerListComponent = () => {
 								{burgers.map((burger) => (
 									<div key={burger.id} className="col-md-4 mb-3">
 										<div className="card">
-											<img
-												className="card-img-top img-fluid"
-												src={burger.meal_img}
-												alt={burger.name}
-											/>
+											<Link to={`/view-burger/${burger.id}`}>
+												<img
+													className="card-img-top img-fluid"
+													src={burger.meal_img}
+													alt={burger.name}
+												/>
+											</Link>
 											<div className="card-body">
 												<h3 className="card-title">{burger.name}</h3>
 												<p className="text-warning fw-bold">
