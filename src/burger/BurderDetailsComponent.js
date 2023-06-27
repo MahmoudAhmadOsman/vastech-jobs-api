@@ -46,7 +46,7 @@ const BurderDetailsComponent = () => {
 
 	const addToCart = () => {
 		toast.success(`Working on it!!!`, {
-			position: "bottom-right",
+			position: "top-right",
 		});
 	};
 
