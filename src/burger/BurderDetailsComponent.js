@@ -44,6 +44,12 @@ const BurderDetailsComponent = () => {
 		}
 	};
 
+	const addToCart = () => {
+		toast.success(`Working on it!!!`, {
+			position: "bottom-right",
+		});
+	};
+
 	useEffect(() => {
 		// console.log(burger);
 		loadBurderData();
@@ -119,7 +125,10 @@ const BurderDetailsComponent = () => {
 													</span>
 												</div>
 												<div className="cart mt-4 align-items-center">
-													<button className="btn btn-outline-danger w-50 btn-lg text-uppercase fw-bold">
+													<button
+														onClick={addToCart}
+														className="btn btn-outline-danger w-50 btn-lg text-uppercase fw-bold"
+													>
 														ADD TO CART
 													</button>
 												</div>
