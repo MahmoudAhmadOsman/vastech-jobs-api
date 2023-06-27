@@ -69,17 +69,18 @@ const BurderDetailsComponent = () => {
 										<div className="mb-3">
 											<h1 className="text-uppercase">{burger.name}</h1>
 
-											<div className="price d-flex flex-row align-items-center">
+											<div className="price">
 												{" "}
 												<h2 className="act-price">${burger.price}</h2>
+												<p>
+													<b className="text-warning">Reviews:</b>{" "}
+													{burger.review}
+												</p>
 											</div>
 										</div>
 										<h4 className="text-muted">Description</h4>
 										<p className="about">{burger.description}</p> <hr />
 										<div className="meal_btn text-dark">
-											{/* <button className="btn btn-outline-warning btn-sm me-2">
-												Reviews: {burger.review}
-											</button> */}
 											<span>
 												<i className="fa fa-chevron-right"></i> Reviews:{" "}
 												{burger.review}
