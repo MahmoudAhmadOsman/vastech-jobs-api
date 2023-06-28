@@ -165,7 +165,7 @@ const BurderDetailsComponent = () => {
 												<div className="cart mt-4 align-items-center">
 													<button
 														onClick={(e) => addToCart(e, burger.id)}
-														className="btn btn-outline-danger w-50 btn-lg text-uppercase fw-bold"
+														className="btn btn-outline-warning w-50 btn-lg text-uppercase fw-bold"
 													>
 														ADD TO CART
 													</button>
