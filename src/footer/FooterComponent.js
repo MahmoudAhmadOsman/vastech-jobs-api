@@ -133,8 +133,9 @@ const FooterComponent = () => {
 				className="text-center p-4"
 				style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
 			>
-				&copy; Copyright.{new Date().getFullYear()}. All rights reserved. &nbsp;
-				ESS SYSTEMS
+				&copy; VAST BURGERS, INC. {new Date().getFullYear()}. All rights
+				reserved. &nbsp; Built by{" "}
+				<Link to="www.mahmoudosman.com">Mahmoud Osman</Link>
 			</div>
 			{/* Copyright */}
 		</section>
