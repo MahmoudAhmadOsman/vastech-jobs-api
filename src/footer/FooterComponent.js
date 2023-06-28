@@ -130,8 +130,9 @@ const FooterComponent = () => {
 			{/* Section: Links  */}
 			{/* Copyright */}
 			<div
+				// 255 255 255 / 5%
 				className="text-center p-4"
-				style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
+				style={{ backgroundColor: "rgba(255 255 255 / 5%)" }}
 			>
 				&copy; VAST BURGERS, INC. {new Date().getFullYear()}. All rights
 				reserved. &nbsp; Built by{" "}
