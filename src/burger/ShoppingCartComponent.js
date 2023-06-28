@@ -66,7 +66,7 @@ const ShoppingCartComponent = () => {
 							<div className="col">
 								{/* Start of Table */}
 								<div className="table-responsive">
-									<table className="table table-hover">
+									<table className="table table-hover table-bordered table-striped table-borderless table-responsive-sm">
 										<thead>
 											<tr>
 												<th></th>
