@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavigationStyle.css";
 
-const Nav = () => {
+const Navigation = () => {
 	const [cart, setCart] = useState(() => {
 		return JSON.parse(localStorage.getItem("cartItems")) || [];
 	}, []);
@@ -83,4 +83,4 @@ const Nav = () => {
 	);
 };
 
-export default Nav;
+export default Navigation;
