@@ -103,7 +103,7 @@ const BurderDetailsComponent = () => {
 								</Link>
 							</div>
 						</div>
-						<h1 className="text-danger">Burger Details</h1> <hr />
+						<h1 className="text-danger"> {burger.name} Details</h1> <hr />
 						<div className="row d-flex justify-content-center">
 							<div className="col-md-10">
 								<div className="card">

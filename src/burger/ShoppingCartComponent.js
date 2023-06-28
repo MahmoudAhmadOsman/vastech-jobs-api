@@ -121,7 +121,7 @@ const ShoppingCartComponent = () => {
 												<tbody>
 													<tr>
 														<td className="text-danger fw-bold">
-															{/* totalPrice */}${totalPrice}
+															${totalPrice}
 														</td>
 													</tr>
 												</tbody>
