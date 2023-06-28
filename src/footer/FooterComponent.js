@@ -4,7 +4,7 @@ import "./FooterStyle.css";
 
 const FooterComponent = () => {
 	return (
-		<section className="footer text-center text-lg-start bg-secondary text-white">
+		<section className="footer text-center text-lg-starttext-white">
 			{/* Section: Social media */}
 			<div className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 				{/* Left */}
@@ -135,7 +135,9 @@ const FooterComponent = () => {
 			>
 				&copy; VAST BURGERS, INC. {new Date().getFullYear()}. All rights
 				reserved. &nbsp; Built by{" "}
-				<Link to="www.mahmoudosman.com">Mahmoud Osman</Link>
+				<Link to="www.mahmoudosman.com" target="_blank">
+					Mahmoud Osman
+				</Link>
 			</div>
 			{/* Copyright */}
 		</section>
