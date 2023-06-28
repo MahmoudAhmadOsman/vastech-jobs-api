@@ -7,9 +7,13 @@ import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 
 const BurderDetailsComponent = () => {
+	const { id } = useParams();
 	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(true);
-	const { id } = useParams();
+
+	const [cart, setCart] = useState(() => {
+		return JSON.parse(localStorage.getItem("cartItems")) || [];
+	});
 
 	const [burger, setBurger] = useState({
 		name: "",
@@ -44,11 +48,26 @@ const BurderDetailsComponent = () => {
 		}
 	};
 
-	const addToCart = () => {
-		toast.success(`Working on it!!!`, {
-			position: "top-right",
+	const addToCart = (e) => {
+		e.preventDefault();
+		setCart([...cart, burger]);
+		toast.success(`${burger.name} added to the cart!!`, {
+			position: "bottom-right",
 		});
 	};
+
+	//get localStorage key
+	useEffect(() => {
+		const data = localStorage.getItem("cartItems");
+		if (data) {
+			setCart(JSON.parse(data));
+		}
+	}, []);
+
+	//set localStorage key
+	useEffect(() => {
+		localStorage.setItem("cartItems", JSON.stringify(cart));
+	}, [cart]);
 
 	useEffect(() => {
 		// console.log(burger);
@@ -68,6 +87,22 @@ const BurderDetailsComponent = () => {
 					</div>
 				) : (
 					<>
+						<div className="float-end">
+							<div className="cart-items d-flex">
+								<Link to="/shopping-cart">
+									<button
+										type="button"
+										className="btn btn-dark position-relative"
+									>
+										<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+										&nbsp;
+										<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+											{cart.length}
+										</span>
+									</button>
+								</Link>
+							</div>
+						</div>
 						<h1 className="text-danger">Burger Details</h1> <hr />
 						<div className="row d-flex justify-content-center">
 							<div className="col-md-10">
@@ -126,7 +161,7 @@ const BurderDetailsComponent = () => {
 												</div>
 												<div className="cart mt-4 align-items-center">
 													<button
-														onClick={addToCart}
+														onClick={(e) => addToCart(e, burger.id)}
 														className="btn btn-outline-danger w-50 btn-lg text-uppercase fw-bold"
 													>
 														ADD TO CART

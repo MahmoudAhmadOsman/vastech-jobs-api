@@ -8,6 +8,7 @@ import HomeComponent from "./home/HomeComponent";
 import NotFound from "./utils/NotFound";
 import BurderDetailsComponent from "./burger/BurderDetailsComponent";
 import BurgerListComponent from "./burger/BurgerListComponent";
+import ShoppingCartComponent from "./burger/ShoppingCartComponent";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 			<Navigation />
 			<React.Fragment>
 				<Routes>
+					<Route path="/shopping-cart" element={<ShoppingCartComponent />} />
 					<Route path="/view-burger/:id" element={<BurderDetailsComponent />} />
 					<Route path="/burgers" element={<BurgerListComponent />} />
 					<Route path="/" exact element={<HomeComponent />} />
