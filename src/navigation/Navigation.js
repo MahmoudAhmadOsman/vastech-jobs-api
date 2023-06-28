@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import "./NavigationStyle.css";
 
 const Nav = () => {
+	const [cart, setCart] = useState(() => {
+		return JSON.parse(localStorage.getItem("cartItems")) || [];
+	}, []);
+
+	const [cartCount, setCartCount] = useState(cart.length);
+
+	useEffect(() => {
+		setCartCount(cart.length);
+	}, [cart]);
+
 	return (
 		<div className="site_navigation">
 			<nav className="navbar navbar-expand-sm navbar-dark bg-dark ">
@@ -41,6 +51,30 @@ const Nav = () => {
 									Burgers
 								</Link>
 							</li>
+
+							{cartCount > 0 ? (
+								<li className="nav-item">
+									<Link className="nav-link" to="/shopping-cart">
+										<div className="nav-shopping-cart">
+											<button
+												type="button"
+												className="btn btn-dark position-relative"
+											>
+												<i
+													className="fa fa-shopping-cart "
+													aria-hidden="true"
+												></i>
+												&nbsp;
+												<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+													{cartCount}
+												</span>
+											</button>
+										</div>
+									</Link>
+								</li>
+							) : (
+								""
+							)}
 						</ul>
 					</div>
 				</div>

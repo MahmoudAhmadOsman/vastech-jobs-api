@@ -82,7 +82,7 @@ const BurgerListComponent = () => {
 													to={`/view-burger/${burger.id}`}
 													className="btn btn-outline-primary  btn-md ms-3"
 												>
-													View
+													VIEW
 												</Link>
 											</div>
 										</div>

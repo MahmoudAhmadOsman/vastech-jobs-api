@@ -15,6 +15,7 @@ const ShoppingCartComponent = () => {
 			position: "bottom-right",
 			autoClose: 2000,
 		});
+		window.location.reload();
 	};
 
 	// Calculate total price
@@ -66,10 +67,14 @@ const ShoppingCartComponent = () => {
 										<thead>
 											<tr>
 												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
+												<th>Burger Name</th>
+												<th> Price</th>
+												<th>Reviews</th>
+												<th>Calories</th>
+												<th>Fiber</th>
+												<th>Protein</th>
+												<th>Carbs</th>
+												<th>Actions</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -94,9 +99,18 @@ const ShoppingCartComponent = () => {
 														<h4>{item.name}</h4>
 													</td>
 													<td>
-														<h4>${item.price}</h4>
+														<h4 className="text-danger fw-bold">
+															${item.price}
+														</h4>
 													</td>
-													<td></td>
+
+													<td className="text-warning fw-bold">
+														{item.review}
+													</td>
+													<td>{item.calories}</td>
+													<td>{item.fiber}</td>
+													<td>{item.protein}</td>
+													<td>{item.carbs}</td>
 													<td>
 														<button
 															title="REMOVE"
@@ -110,6 +124,7 @@ const ShoppingCartComponent = () => {
 											))}
 										</tbody>
 									</table>
+
 									<div className="float-end">
 										<div className="table-responsive">
 											<table className="table table-hover table-secondary">

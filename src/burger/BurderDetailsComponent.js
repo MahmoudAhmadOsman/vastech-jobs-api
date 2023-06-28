@@ -54,6 +54,7 @@ const BurderDetailsComponent = () => {
 		toast.success(`${burger.name} added to the cart!!`, {
 			position: "bottom-right",
 		});
+		window.location.reload();
 	};
 
 	//get localStorage key
@@ -70,7 +71,6 @@ const BurderDetailsComponent = () => {
 	}, [cart]);
 
 	useEffect(() => {
-		// console.log(burger);
 		loadBurderData();
 	}, []);
 
