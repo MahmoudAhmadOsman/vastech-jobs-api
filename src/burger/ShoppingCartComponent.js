@@ -11,11 +11,14 @@ const ShoppingCartComponent = () => {
 	const handleRemoveCartItem = (item) => {
 		const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
 		setCart(updatedCart);
+
+		setTimeout(() => {
+			window.location.reload();
+		}, 2000);
 		toast.warn(`${item.name} removed from the cart!!`, {
 			position: "bottom-right",
 			autoClose: 2000,
 		});
-		window.location.reload();
 	};
 
 	// Calculate total price
