@@ -130,7 +130,6 @@ const FooterComponent = () => {
 			{/* Section: Links  */}
 			{/* Copyright */}
 			<div
-				// 255 255 255 / 5%
 				className="text-center p-4"
 				style={{ backgroundColor: "rgba(255 255 255 / 5%)" }}
 			>
