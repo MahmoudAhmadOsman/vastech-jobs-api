@@ -72,7 +72,7 @@ const BurgerListComponent = () => {
 													{burger.description.slice(0, 40)}...
 												</p>{" "}
 												<hr />
-												<button className="btn btn-danger fw-bold btn-md">
+												<button className="btn btn-outline-danger fw-bold btn-md">
 													${burger.price}
 												</button>
 												<span className="btn btn-outline-secondary btn-md  ms-3">
@@ -80,7 +80,7 @@ const BurgerListComponent = () => {
 												</span>
 												<Link
 													to={`/view-burger/${burger.id}`}
-													className="btn btn-outline-primary  btn-md ms-3"
+													className="btn btn-outline-warning btn-md ms-3"
 												>
 													VIEW
 												</Link>

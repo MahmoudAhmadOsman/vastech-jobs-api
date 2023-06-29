@@ -60,6 +60,10 @@ const BurderDetailsComponent = () => {
 		}, 2000);
 	};
 
+ 
+
+
+
 	//get localStorage key
 	useEffect(() => {
 		const data = localStorage.getItem("cartItems");
