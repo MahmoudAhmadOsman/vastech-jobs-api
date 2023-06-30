@@ -86,8 +86,8 @@ const ShoppingCartComponent = () => {
 	}, [cart]);
 
 	return (
-		<section className="container mt-3">
-			<>
+		<section className="burger-shopping-cart">
+			<div className="container mt-3">
 				{cart.length === 0 ? (
 					<div className="row">
 						<div className="col-md-6 offset-md-2">
@@ -132,13 +132,9 @@ const ShoppingCartComponent = () => {
 													<td>
 														<Link to={`/view-burger/${item.id}`}>
 															<img
+																className="burger-in-cart"
 																src={item.meal_img}
 																alt={item.name}
-																style={{
-																	width: "250px",
-																	height: "250px",
-																	borderRadius: "50%",
-																}}
 															/>{" "}
 														</Link>
 														<p className="cart-text text-muted mt-3">
@@ -223,7 +219,7 @@ const ShoppingCartComponent = () => {
 						</div>
 					</>
 				)}
-			</>
+			</div>
 		</section>
 	);
 };
