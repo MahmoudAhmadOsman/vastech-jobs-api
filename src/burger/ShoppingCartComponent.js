@@ -134,7 +134,11 @@ const ShoppingCartComponent = () => {
 															<img
 																src={item.meal_img}
 																alt={item.name}
-																style={{ width: "80px", height: "80px" }}
+																style={{
+																	width: "250px",
+																	height: "250px",
+																	borderRadius: "50%",
+																}}
 															/>{" "}
 														</Link>
 														<p className="cart-text text-muted mt-3">
