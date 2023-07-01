@@ -80,9 +80,9 @@ const BurderDetailsComponent = () => {
 	return (
 		<section className="burger-details">
 			<div className="container mt-3">
-				<div className="row ">
+				<div className="row mb-3">
 					<div className="col-md-6">
-						<h1 className="text-danger"> {burger.name} Details</h1> <hr />
+						<h1 className="text-danger"> {burger.name} Details</h1>
 					</div>
 					<div className="col-md-3">
 						<i className="fa fa-chevron-left" />
