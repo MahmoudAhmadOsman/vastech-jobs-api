@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 
-const BurderDetailsComponent = () => {
+const BurderDetailsComponent = ({ className }) => {
 	const { id } = useParams();
 	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(true);
@@ -14,6 +14,8 @@ const BurderDetailsComponent = () => {
 	const [cart, setCart] = useState(() => {
 		return JSON.parse(localStorage.getItem("cartItems")) || [];
 	});
+
+	const screenSize = "md";
 
 	const [burger, setBurger] = useState({
 		name: "",
@@ -129,7 +131,7 @@ const BurderDetailsComponent = () => {
 				</div>
 				{/* Start of 2 row */}
 				<div className="row shadow-lg p-2 mb-5 bg-body rounded">
-					<div className="col-mg-6 col-md-6 col-sm-12 col-xs-12">
+					<div className="col-mg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
 						{burger.meal_img === "" ? (
 							<h5 className="text-center mt-3">Loading...</h5>
 						) : (
@@ -140,8 +142,19 @@ const BurderDetailsComponent = () => {
 							/>
 						)}
 					</div>
-					<div className="col-mg-6 col-md-6 col-sm-12 col-xs-12">
-						<h1 className="text-uppercase">{burger.name}</h1> <hr />
+					<div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<h1 className="text-uppercase">{burger.name}</h1>
+						<div>
+							{screenSize === "xs" ? null : (
+								<>
+									{screenSize === "md" ||
+									screenSize === "lg" ||
+									screenSize === "sm" ? (
+										<hr />
+									) : null}
+								</>
+							)}
+						</div>
 						<h2>
 							Price: <b className="text-danger fw-bold">${burger.price}</b>
 						</h2>
