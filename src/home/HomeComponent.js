@@ -1,14 +1,14 @@
 import React from "react";
-
 import "./HomeStyle.css";
 import BurgerListComponent from "../burger/BurgerListComponent";
 
 const HomeComponent = () => {
-	const image1 = "https://source.unsplash.com/1500x1000/?hamburger";
-	const image2 =
-		"https://source.unsplash.com/1500x1000/?hamburger/cheeseburger";
-	const image3 = "https://source.unsplash.com/1500x1000/?hamburger/banquet";
-	const image4 = "https://source.unsplash.com/1500x1000/?hamburger/sandwich";
+	const images = [
+		"https://source.unsplash.com/1500x1000/?hamburger",
+		"https://source.unsplash.com/1500x1000/?hamburger/cheeseburger",
+		"https://source.unsplash.com/1500x1000/?hamburger/banquet",
+		"https://source.unsplash.com/1500x1000/?hamburger/sandwich",
+	];
 	return (
 		<section className="home-page">
 			<div className="burger-carousel-container">
@@ -16,65 +16,38 @@ const HomeComponent = () => {
 					<div className="row">
 						<div className="col-md-12">
 							{/* Start of Carousel */}
+
 							<div
 								id="carouselExampleIndicators"
 								className="carousel slide"
 								data-bs-ride="carousel"
 							>
 								<div className="carousel-indicators">
-									<button
-										type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to={0}
-										className="active"
-										aria-current="true"
-										aria-label="Slide 1"
-									/>
-									<button
-										type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to={1}
-										aria-label="Slide 2"
-									/>
-									<button
-										type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to={2}
-										aria-label="Slide 3"
-									/>
-									<button
-										type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to={3}
-										aria-label="Slide 4"
-									/>
+									{images.map((image, index) => (
+										<button
+											key={index}
+											type="button"
+											data-bs-target="#carouselExampleIndicators"
+											data-bs-slide-to={index}
+											className={index === 0 ? "active" : ""}
+											aria-current={index === 0 ? "true" : "false"}
+											aria-label={`Slide ${index + 1}`}
+										></button>
+									))}
 								</div>
 								<div className="carousel-inner">
-									<div className="carousel-item active img-fluid">
-										<img src={image1} className="d-block w-100" alt="..." />
-									</div>
-
-									<div className="carousel-item">
-										<img
-											src={image2}
-											className="d-block w-100 img-fluid"
-											alt="..."
-										/>
-									</div>
-									<div className="carousel-item">
-										<img
-											src={image3}
-											className="d-block w-100 img-fluid"
-											alt="..."
-										/>
-									</div>
-									<div className="carousel-item">
-										<img
-											src={image4}
-											className="d-block w-100 img-fluid"
-											alt="..."
-										/>
-									</div>
+									{images.map((image, index) => (
+										<div
+											key={index}
+											className={`carousel-item ${index === 0 ? "active" : ""}`}
+										>
+											<img
+												src={image}
+												className="d-block w-100"
+												alt={`Slide ${index + 1}`}
+											/>
+										</div>
+									))}
 								</div>
 								<button
 									className="carousel-control-prev"
@@ -85,7 +58,7 @@ const HomeComponent = () => {
 									<span
 										className="carousel-control-prev-icon"
 										aria-hidden="true"
-									/>
+									></span>
 									<span className="visually-hidden">Previous</span>
 								</button>
 								<button
@@ -97,11 +70,10 @@ const HomeComponent = () => {
 									<span
 										className="carousel-control-next-icon"
 										aria-hidden="true"
-									/>
+									></span>
 									<span className="visually-hidden">Next</span>
 								</button>
 							</div>
-
 							{/* End of Carousel */}
 						</div>
 					</div>
