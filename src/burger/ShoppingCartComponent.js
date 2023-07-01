@@ -132,22 +132,17 @@ const ShoppingCartComponent = () => {
 												<tr key={item.id}>
 													<td>
 														<Link to={`/view-burger/${item.id}`}>
-															{item.meal_img.length > 0 ? (
+															{item.meal_img.length === 0 ? (
+																<>
+																	<span>Loading...</span>
+																</>
+															) : (
 																<img
 																	className="burger-in-cart"
 																	src={item.meal_img}
 																	alt={item.name}
 																/>
-															) : (
-																<>
-																	<Loading />
-																</>
 															)}
-															{/* <img
-																className="burger-in-cart"
-																src={item.meal_img}
-																alt={item.name}
-															/>{" "} */}
 														</Link>
 														<p className="cart-text text-muted mt-3">
 															<b className="h6">Product Description</b>

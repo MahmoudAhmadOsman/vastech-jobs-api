@@ -57,11 +57,17 @@ const BurgerListComponent = () => {
 									<div key={burger.id} className="col-md-4 mb-3">
 										<div className="card">
 											<Link to={`/view-burger/${burger.id}`}>
-												<img
-													className="card-img-top img-fluid"
-													src={burger.meal_img}
-													alt={burger.name}
-												/>
+												{burger.meal_img.length === 0 ? (
+													<>
+														<span>Loading...</span>
+													</>
+												) : (
+													<img
+														className="card-img-top img-fluid"
+														src={burger.meal_img}
+														alt={burger.name}
+													/>
+												)}
 											</Link>
 											<div className="card-body">
 												<h3 className="card-title">{burger.name}</h3>
