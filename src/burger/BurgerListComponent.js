@@ -47,7 +47,7 @@ const BurgerListComponent = () => {
 						</div>
 					) : error ? (
 						<div className="alert alert-danger text-center">
-							<h5>{error.message}</h5>
+							<h5>{setError(error.message)}</h5>
 						</div>
 					) : (
 						<>

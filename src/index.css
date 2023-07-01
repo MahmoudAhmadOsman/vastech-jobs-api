@@ -12,11 +12,11 @@ code {
 		monospace;
 }
 
-/* Spinner style */
+/* =========  Spinner style =================  */
 
 .spinner-border {
-	width: 9rem;
-	height: 9rem;
+	width: 6rem;
+	height: 6rem;
 	animation: spin 2s linear infinite;
 	color: #dddbdb;
 	position: absolute;
@@ -24,6 +24,38 @@ code {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	overflow: hidden;
+}
+
+/* Small devices (up to 576px) */
+@media (max-width: 576px) {
+	.spinner-border {
+		width: 4rem;
+		height: 4rem;
+	}
+}
+
+/* Medium devices (576px - 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+	.spinner-border {
+		width: 5rem;
+		height: 5rem;
+	}
+}
+
+/* Large devices (768px - 992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+	.spinner-border {
+		width: 7rem;
+		height: 7rem;
+	}
+}
+
+/* Extra large devices (992px and above) */
+@media (min-width: 992px) {
+	.spinner-border {
+		width: 8rem;
+		height: 8rem;
+	}
 }
 
 @keyframes spin {
