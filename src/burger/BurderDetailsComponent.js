@@ -152,9 +152,6 @@ const BurderDetailsComponent = () => {
 						<p className="about">{burger.description}</p> <hr />
 						<div className="meal_btn text-dark">
 							<span>
-								<i className="fa fa-chevron-right"></i> Reviews: {burger.review}
-							</span>
-							<span>
 								<i className="fa fa-chevron-right ms-2"></i> Calories:{" "}
 								{burger.calories}
 							</span>
