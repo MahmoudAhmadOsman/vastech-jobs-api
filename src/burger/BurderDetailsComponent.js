@@ -51,7 +51,7 @@ const BurderDetailsComponent = () => {
 	const addToCart = (e) => {
 		e.preventDefault();
 		setCart([...cart, burger]);
-		toast.success(`${burger.name} added to the cart!!`, {
+		toast.success(`${burger.name} added to cart!!`, {
 			position: "bottom-right",
 		});
 
@@ -59,10 +59,6 @@ const BurderDetailsComponent = () => {
 			window.location.reload();
 		}, 2000);
 	};
-
- 
-
-
 
 	//get localStorage key
 	useEffect(() => {
