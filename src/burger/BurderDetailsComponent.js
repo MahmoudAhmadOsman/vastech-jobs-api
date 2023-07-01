@@ -130,11 +130,15 @@ const BurderDetailsComponent = () => {
 				{/* Start of 2 row */}
 				<div className="row shadow-lg p-2 mb-5 bg-body rounded">
 					<div className="col-mg-6 col-md-6 col-sm-12 col-xs-12">
-						<img
-							className="img-fluid left-img"
-							src={burger.meal_img}
-							alt={burger.name}
-						/>
+						{burger.meal_img === "" ? (
+							<h5 className="text-center mt-3">Loading...</h5>
+						) : (
+							<img
+								className="img-fluid left-img"
+								src={burger.meal_img}
+								alt={burger.name}
+							/>
+						)}
 					</div>
 					<div className="col-mg-6 col-md-6 col-sm-12 col-xs-12">
 						<h1 className="text-uppercase">{burger.name}</h1> <hr />
