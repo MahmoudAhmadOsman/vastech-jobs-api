@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../utils/Loading";
 
 const ShoppingCartComponent = () => {
 	const [cart, setCart] = useState(() => {
@@ -22,32 +23,32 @@ const ShoppingCartComponent = () => {
 	};
 
 	// Increase quantity
-	const handleIncreaseQuantity = (item) => {
-		const updatedCart = cart.map((cartItem) => {
-			if (cartItem.id === item.id) {
-				const newQuantity = Number.isNaN(cartItem.quantity)
-					? 1
-					: cartItem.quantity + 1;
-				return { ...cartItem, quantity: newQuantity };
-			}
-			return cartItem;
-		});
-		setCart(updatedCart);
-	};
+	// const handleIncreaseQuantity = (item) => {
+	// 	const updatedCart = cart.map((cartItem) => {
+	// 		if (cartItem.id === item.id) {
+	// 			const newQuantity = Number.isNaN(cartItem.quantity)
+	// 				? 1
+	// 				: cartItem.quantity + 1;
+	// 			return { ...cartItem, quantity: newQuantity };
+	// 		}
+	// 		return cartItem;
+	// 	});
+	// 	setCart(updatedCart);
+	// };
 
 	// Decrease quantity
-	const handleDecreaseQuantity = (item) => {
-		const updatedCart = cart.map((cartItem) => {
-			if (cartItem.id === item.id) {
-				const newQuantity = Number.isNaN(cartItem.quantity)
-					? 0
-					: Math.max(cartItem.quantity - 1, 0);
-				return { ...cartItem, quantity: newQuantity };
-			}
-			return cartItem;
-		});
-		setCart(updatedCart);
-	};
+	// const handleDecreaseQuantity = (item) => {
+	// 	const updatedCart = cart.map((cartItem) => {
+	// 		if (cartItem.id === item.id) {
+	// 			const newQuantity = Number.isNaN(cartItem.quantity)
+	// 				? 0
+	// 				: Math.max(cartItem.quantity - 1, 0);
+	// 			return { ...cartItem, quantity: newQuantity };
+	// 		}
+	// 		return cartItem;
+	// 	});
+	// 	setCart(updatedCart);
+	// };
 	// Calculate total price
 	const totalPrice = cart.reduce(
 		(total, item) => total + parseFloat(item.price),
@@ -131,11 +132,22 @@ const ShoppingCartComponent = () => {
 												<tr key={item.id}>
 													<td>
 														<Link to={`/view-burger/${item.id}`}>
-															<img
+															{item.meal_img.length > 0 ? (
+																<img
+																	className="burger-in-cart"
+																	src={item.meal_img}
+																	alt={item.name}
+																/>
+															) : (
+																<>
+																	<Loading />
+																</>
+															)}
+															{/* <img
 																className="burger-in-cart"
 																src={item.meal_img}
 																alt={item.name}
-															/>{" "}
+															/>{" "} */}
 														</Link>
 														<p className="cart-text text-muted mt-3">
 															<b className="h6">Product Description</b>
