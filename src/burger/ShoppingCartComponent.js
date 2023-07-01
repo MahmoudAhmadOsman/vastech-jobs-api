@@ -112,8 +112,8 @@ const ShoppingCartComponent = () => {
 						<div className="row mt-3">
 							<div className="col">
 								{/* Start of Table */}
-								<div className="table-responsive">
-									<table className="table table-hover table-bordered table-striped table-borderless table-responsive-sm">
+								<div className="table-responsive shadow-lg p-3 mb-5 bg-body rounded">
+									<table className="table table-hover table-bordered table-borderless">
 										<thead>
 											<tr>
 												<th></th>
