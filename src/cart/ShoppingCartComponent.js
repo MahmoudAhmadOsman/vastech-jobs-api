@@ -134,7 +134,7 @@ const ShoppingCartComponent = () => {
 													<tr>
 														<th></th>
 														<th> Name</th>
-														<th> Price</th>
+														<th>Price</th>
 														<th>Reviews</th>
 														<th>Calories</th>
 														<th>Fiber</th>
@@ -147,21 +147,26 @@ const ShoppingCartComponent = () => {
 													{cart.map((item) => (
 														<tr key={item.id}>
 															<td>
-																<Link to={`/view-burger/${item.id}`}>
-																	{item.meal_img === null ? (
-																		<h5 className="text-center">Loading...</h5>
+																<div>
+																	{item.meal_img ? (
+																		<Link to={`/view-burger/${item.id}`}>
+																			<img
+																				className="img-fluid burger-in-cart"
+																				src={item.meal_img}
+																				alt={item.name}
+																			/>
+																		</Link>
 																	) : (
-																		<img
-																			className="img-fluid burger-in-cart"
-																			src={
-																				item.meal_img
-																					? item.meal_img
-																					: item.drink_image
-																			}
-																			alt={item.name}
-																		/>
+																		<Link to={`/view-drink/${item.id}`}>
+																			<img
+																				className="img-fluid burger-in-cart"
+																				src={item.drink_image}
+																				alt={item.name}
+																			/>
+																		</Link>
 																	)}
-																</Link>
+																</div>
+
 																<p className="cart-text text-muted mt-3">
 																	<b className="h6"> Description</b>
 																	<br />
