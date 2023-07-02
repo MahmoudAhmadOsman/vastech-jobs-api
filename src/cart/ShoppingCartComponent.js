@@ -163,7 +163,7 @@ const ShoppingCartComponent = () => {
 																	)}
 																</Link>
 																<p className="cart-text text-muted mt-3">
-																	<b className="h6">Product Description</b>
+																	<b className="h6"> Description</b>
 																	<br />
 																	{item.description}
 																</p>
