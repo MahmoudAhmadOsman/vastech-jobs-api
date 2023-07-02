@@ -2,39 +2,15 @@ import React from "react";
 import { useState } from "react";
 import BurgerService from "../service/BurgerService";
 import { useEffect } from "react";
-import "./BurgerStyle.css";
+import "./DrinkStyle.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
-import DrinkListComponent from "../drink/DrinkListComponent";
 
-const BurgerListComponent = () => {
+const DrinkListComponent = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
-	const [burgers, setBurgers] = useState([]);
 	const [drinks, setDrink] = useState([]);
-
-	// console.log("Drinks: ", drinks);
-
-	const getAllBurgers = async () => {
-		try {
-			await BurgerService.getAllBurgers()
-				.then((res) => {
-					setBurgers(res.data);
-					setLoading(false);
-				})
-				.catch((error) => {
-					setError(error);
-					toast.warn(`An Error ${error} has occured!!`, {
-						position: "bottom-right",
-					});
-				});
-		} catch (error) {
-			toast.warn(`An Error ${error} has occured!!`, {
-				position: "bottom-right",
-			});
-		}
-	};
 
 	const getAllDrinks = async () => {
 		try {
@@ -57,14 +33,14 @@ const BurgerListComponent = () => {
 	};
 
 	useEffect(() => {
-		getAllBurgers();
 		getAllDrinks();
 	}, []);
 
 	return (
-		<section className="burger">
+		<section className="drink-section bg-secondary p-4">
 			<div className="container mt-3">
-				<div className="loadding">
+				{/* Start of Drinks  */}
+				<div className="row mt-4">
 					{loading ? (
 						<div className="loading">
 							<Loading />
@@ -75,41 +51,35 @@ const BurgerListComponent = () => {
 						</div>
 					) : (
 						<>
-							<h1 className="text-danger">Vast Burgers</h1> <hr />
+							<h1 className="text-danger">Beverages</h1> <hr />
 							<div className="row">
-								{burgers.map((burger) => (
-									<div key={burger.id} className="col-md-4 mb-3">
+								{drinks.map((drink) => (
+									<div key={drink.id} className="col-md-4 mb-3">
 										<div className="card">
-											<Link to={`/view-burger/${burger.id}`}>
-												{burger.meal_img.length === 0 ? (
+											<Link to={`/view-drink/${drink.id}`}>
+												{drink.drink_image.length === 0 ? (
 													<>
 														<span>Loading...</span>
 													</>
 												) : (
 													<img
 														className="card-img-top img-fluid"
-														src={burger.meal_img}
-														alt={burger.name}
+														src={drink.drink_image}
+														alt={drink.name}
 													/>
 												)}
 											</Link>
 											<div className="card-body">
-												<h3 className="card-title">{burger.name}</h3>
-												<p className="text-warning fw-bold">
-													Reviews: {burger.review}
-												</p>
+												<h3 className="card-title">{drink.name}</h3>
 												<p className="card-text text-muted">
-													{burger.description.slice(0, 50)}...
+													{drink.description.slice(0, 50)}...
 												</p>{" "}
 												<hr />
 												<button className="btn btn-outline-danger fw-bold btn-md">
-													${burger.price}
+													${drink.price}
 												</button>
-												<span className="btn btn-outline-secondary btn-md  ms-3">
-													{burger.calories} calories
-												</span>
 												<Link
-													to={`/view-burger/${burger.id}`}
+													to={`/view-drink/${drink.id}`}
 													className="btn btn-outline-warning btn-md ms-3"
 												>
 													VIEW
@@ -121,11 +91,11 @@ const BurgerListComponent = () => {
 							</div>
 						</>
 					)}
-				</div>{" "}
-			</div>{" "}
-			<DrinkListComponent />
+				</div>
+				{/* End of Drinks  */}
+			</div>
 		</section>
 	);
 };
 
-export default BurgerListComponent;
+export default DrinkListComponent;

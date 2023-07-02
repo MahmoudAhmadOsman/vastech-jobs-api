@@ -133,7 +133,7 @@ const ShoppingCartComponent = () => {
 												<thead>
 													<tr>
 														<th></th>
-														<th>Burger Name</th>
+														<th> Name</th>
 														<th> Price</th>
 														<th>Reviews</th>
 														<th>Calories</th>
@@ -153,7 +153,11 @@ const ShoppingCartComponent = () => {
 																	) : (
 																		<img
 																			className="img-fluid burger-in-cart"
-																			src={item.meal_img}
+																			src={
+																				item.meal_img
+																					? item.meal_img
+																					: item.drink_image
+																			}
 																			alt={item.name}
 																		/>
 																	)}
@@ -235,8 +239,8 @@ const ShoppingCartComponent = () => {
 												</div>
 											</div>
 										</div>
+										{/* End of Table */}
 									</div>
-									{/* End of Table */}
 								</div>
 							</>
 						)}

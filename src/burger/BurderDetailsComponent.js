@@ -3,10 +3,11 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import BurgerService from "../service/BurgerService";
 import { useEffect } from "react";
+
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 
-const BurderDetailsComponent = ({ className }) => {
+const BurderDetailsComponent = () => {
 	const { id } = useParams();
 	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(true);

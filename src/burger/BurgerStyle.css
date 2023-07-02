@@ -2,7 +2,7 @@
 	position: relative;
 }
 .burger .card {
-	height: 475px;
+	/* height: 475px; */
 	margin-bottom: 20px;
 }
 .burger .card img {
@@ -27,33 +27,7 @@
 	position: relative;
 }
 
-/* Default styles for all devices */
 .burger-shopping-cart img.burger-in-cart {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-}
-
-/* Styles for devices with a maximum width of 600px */
-@media (max-width: 600px) {
-	.burger-shopping-cart img.burger-in-cart {
-		width: 100px;
-		height: 100px;
-	}
-}
-
-/* Styles for devices with a minimum width of 601px and a maximum width of 1024px */
-@media (min-width: 601px) and (max-width: 1024px) {
-	.burger-shopping-cart img.burger-in-cart {
-		width: 120px;
-		height: 120px;
-	}
-}
-
-/* Styles for devices with a minimum width of 1025px */
-@media (min-width: 1025px) {
-	.burger-shopping-cart img.burger-in-cart {
-		width: 150px;
-		height: 150px;
-	}
+	width: auto;
+	height: auto;
 }
