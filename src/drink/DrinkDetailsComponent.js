@@ -22,7 +22,7 @@ const DrinkDetailsComponent = () => {
 		description: "",
 	});
 
-	const loadBurderData = async () => {
+	const loadDrinkData = async () => {
 		try {
 			await BurgerService.getDrinkId(id)
 				.then((res) => {
@@ -70,7 +70,7 @@ const DrinkDetailsComponent = () => {
 	}, [cart]);
 
 	useEffect(() => {
-		loadBurderData();
+		loadDrinkData();
 	}, []);
 
 	return (
