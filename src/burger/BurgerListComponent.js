@@ -119,11 +119,11 @@ const BurgerListComponent = () => {
 									</div>
 								))}
 							</div>
+							<DrinkListComponent />
 						</>
 					)}
-				</div>{" "}
-			</div>{" "}
-			<DrinkListComponent />
+				</div>
+			</div>
 		</section>
 	);
 };
