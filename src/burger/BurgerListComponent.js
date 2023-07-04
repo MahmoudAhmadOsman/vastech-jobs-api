@@ -12,7 +12,7 @@ const BurgerListComponent = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
 	const [burgers, setBurgers] = useState([]);
-	const [drinks, setDrink] = useState([]);
+	const [drinks, setDrinks] = useState([]);
 
 	// console.log("Drinks: ", drinks);
 
@@ -40,7 +40,7 @@ const BurgerListComponent = () => {
 		try {
 			await BurgerService.getAllDrinks()
 				.then((res) => {
-					setDrink(res.data);
+					setDrinks(res.data);
 					setLoading(false);
 				})
 				.catch((error) => {

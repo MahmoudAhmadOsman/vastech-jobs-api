@@ -10,13 +10,13 @@ import Loading from "../utils/Loading";
 const DrinkListComponent = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
-	const [drinks, setDrink] = useState([]);
+	const [drinks, setDrinks] = useState([]);
 
 	const getAllDrinks = async () => {
 		try {
 			await BurgerService.getAllDrinks()
 				.then((res) => {
-					setDrink(res.data);
+					setDrinks(res.data);
 					setLoading(false);
 				})
 				.catch((error) => {
