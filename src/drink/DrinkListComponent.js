@@ -54,7 +54,7 @@ const DrinkListComponent = () => {
 							<h1 className="text-danger">Beverages</h1> <hr />
 							<div className="row">
 								{drinks.map((drink) => (
-									<div key={drink.id} className="col-md-4 mb-3">
+									<div key={drink.id} className="col-md-3 mb-3">
 										<div className="card">
 											<Link to={`/view-drink/${drink.id}`}>
 												{drink.drink_image.length === 0 ? (
