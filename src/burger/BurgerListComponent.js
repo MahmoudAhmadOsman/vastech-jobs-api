@@ -78,7 +78,7 @@ const BurgerListComponent = () => {
 							<h1 className="text-danger">Vast Burgers</h1> <hr />
 							<div className="row">
 								{burgers.map((burger) => (
-									<div key={burger.id} className="col-md-3 mb-3">
+									<div key={burger.id} className="col-md-3 mb-4">
 										<div className="card">
 											<Link to={`/view-burger/${burger.id}`}>
 												{burger.meal_img.length === 0 ? (
@@ -102,15 +102,15 @@ const BurgerListComponent = () => {
 													{burger.description.slice(0, 50)}...
 												</p>{" "}
 												<hr />
-												<button className="btn btn-outline-danger fw-bold btn-md">
+												<button className="btn btn-outline-danger fw-bold btn-sm">
 													${burger.price}
 												</button>
-												<span className="btn btn-outline-secondary btn-md  ms-3">
+												<button className="btn btn-outline-secondary btn-sm  ms-1">
 													{burger.calories} calories
-												</span>
+												</button>
 												<Link
 													to={`/view-burger/${burger.id}`}
-													className="btn btn-outline-warning btn-md ms-3"
+													className="btn btn-outline-warning btn-sm ms-1"
 												>
 													VIEW
 												</Link>

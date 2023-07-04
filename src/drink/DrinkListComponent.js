@@ -37,7 +37,7 @@ const DrinkListComponent = () => {
 	}, []);
 
 	return (
-		<section className="drink-section bg-secondary p-4">
+		<section className="drink-section bg-secondary">
 			<div className="container mt-3">
 				{/* Start of Drinks  */}
 				<div className="row mt-4">
@@ -70,9 +70,9 @@ const DrinkListComponent = () => {
 												)}
 											</Link>
 											<div className="card-body">
-												<h3 className="card-title">{drink.name}</h3>
+												<h4 className="card-title">{drink.name}</h4>
 												<p className="card-text text-muted">
-													{drink.description.slice(0, 50)}...
+													{drink.description.slice(0, 40)}...
 												</p>{" "}
 												<hr />
 												<button className="btn btn-outline-danger fw-bold btn-md">

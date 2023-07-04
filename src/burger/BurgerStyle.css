@@ -3,10 +3,13 @@
 }
 .burger .card {
 	/* height: 475px; */
+	height: auto;
 	margin-bottom: 20px;
+	position: relative;
 }
 .burger .card img {
 	min-height: 253px;
+	height: auto;
 	object-fit: cover;
 }
 /*================ Burger Details style ================ */
