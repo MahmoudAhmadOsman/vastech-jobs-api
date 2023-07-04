@@ -78,7 +78,7 @@ const BurgerListComponent = () => {
 							<h1 className="text-danger">Vast Burgers</h1> <hr />
 							<div className="row">
 								{burgers.map((burger) => (
-									<div key={burger.id} className="col-md-3 mb-4">
+									<div key={burger.id} className="col-md-3 mb-3">
 										<div className="card">
 											<Link to={`/view-burger/${burger.id}`}>
 												{burger.meal_img.length === 0 ? (
