@@ -146,43 +146,45 @@ const ShoppingCartComponent = () => {
 														</tr>
 													</thead>
 													<tbody>
-														{cart.map((item) => (
-															<tr key={item.id}>
-																<td>
-																	{item.meal_img ? (
-																		<Link to={`/view-burger/${item.id}`}>
-																			<img
-																				className="img-fluid burger-in-cart"
-																				src={item.meal_img}
-																				alt={item.name}
-																			/>
-																		</Link>
-																	) : (
-																		<Link to={`/view-drink/${item.id}`}>
-																			<img
-																				className="img-fluid burger-in-cart"
-																				src={item.drink_image}
-																				alt={item.name}
-																			/>
-																		</Link>
-																	)}
+														{cart
+															.sort((a, b) => a.id - b.id)
+															.map((item) => (
+																<tr key={item.id}>
+																	<td>
+																		{item.meal_img ? (
+																			<Link to={`/view-burger/${item.id}`}>
+																				<img
+																					className="img-fluid burger-in-cart"
+																					src={item.meal_img}
+																					alt={item.name}
+																				/>
+																			</Link>
+																		) : (
+																			<Link to={`/view-drink/${item.id}`}>
+																				<img
+																					className="img-fluid burger-in-cart"
+																					src={item.drink_image}
+																					alt={item.name}
+																				/>
+																			</Link>
+																		)}
 
-																	<p className="cart-text text-muted mt-3">
-																		<b className="h5"> Description</b>
-																		<br />
-																		{item.description.slice(0, 40)}...{" "}
-																	</p>
-																</td>
-																<td>
-																	<h4>{item.name}</h4>
-																</td>
-																<td>
-																	<h4 className="text-danger fw-bold">
-																		${item.price}
-																	</h4>
-																</td>
+																		<p className="cart-text text-muted mt-3">
+																			<b className="h5"> Description</b>
+																			<br />
+																			{item.description.slice(0, 40)}...{" "}
+																		</p>
+																	</td>
+																	<td>
+																		<h4>{item.name}</h4>
+																	</td>
+																	<td>
+																		<h4 className="text-danger fw-bold">
+																			${item.price}
+																		</h4>
+																	</td>
 
-																{/* 
+																	{/* 
 																	<td className="text-warning fw-bold">
 																		{item.review}
 																	</td>
@@ -191,17 +193,17 @@ const ShoppingCartComponent = () => {
 																	<td>{item.protein}</td>
 																	<td>{item.carbs}</td>
 																 */}
-																<td>
-																	<button
-																		title="REMOVE"
-																		onClick={() => handleRemoveCartItem(item)}
-																		className="btn btn-outline-danger btn-sm w-100"
-																	>
-																		<i className="fa fa-trash"></i>
-																	</button>
-																</td>
+																	<td>
+																		<button
+																			title="REMOVE"
+																			onClick={() => handleRemoveCartItem(item)}
+																			className="btn btn-outline-danger btn-sm w-100"
+																		>
+																			<i className="fa fa-trash"></i>
+																		</button>
+																	</td>
 
-																{/* 
+																	{/* 
 																	<td>
 																	<div className="quantity-controls">
 																	<button
@@ -225,8 +227,8 @@ const ShoppingCartComponent = () => {
 																	</td> 
 																
 																*/}
-															</tr>
-														))}
+																</tr>
+															))}
 													</tbody>
 												</table>
 
