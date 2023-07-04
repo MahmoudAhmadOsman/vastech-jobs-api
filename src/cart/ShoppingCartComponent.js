@@ -133,7 +133,7 @@ const ShoppingCartComponent = () => {
 											<div className="table-responsive shadow-lg p-3 mb-5 bg-body rounded">
 												<table className="table table-hover table-bordered table-borderless">
 													<thead>
-														<tr>
+														<tr className="table-secondary">
 															<th></th>
 															<th> Name</th>
 															<th>Price</th>
