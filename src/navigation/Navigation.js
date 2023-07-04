@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import "./NavigationStyle.css";
+// import { CartContext } from "../context/CartContext";
 
 const Navigation = () => {
+	// const { cart } = useContext(CartContext);
+	//2. extract cart from contextValue function
+	// const { cart } = useContext(CartContext);
+
 	const [cart, setCart] = useState(() => {
 		return JSON.parse(localStorage.getItem("cartItems")) || [];
 	}, []);

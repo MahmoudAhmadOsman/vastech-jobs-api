@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
 
 	//Add item to the cart
 
-	const addItemToCart = (item) => {
+	const addToCart = (item) => {
 		setCart((prevCart) => [...prevCart, item]);
 	};
 
@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
 	// Create the context value object
 	const contextValue = {
 		cart,
-		addItemToCart,
+		addToCart,
 		removeItemFromCart,
 		clearCart,
 		getTotalItems,

@@ -9,7 +9,7 @@
 	min-height: 253px;
 	object-fit: cover;
 }
-/*================ Burder Details style ================ */
+/*================ Burger Details style ================ */
 .burger-details {
 	position: relative;
 	overflow-x: hidden;
@@ -20,14 +20,4 @@
 	height: 350px;
 	object-fit: cover;
 	outline: solid #f6f6f6 11px;
-}
-
-/*============ Burger shopping cart style ============= */
-.burger-shopping-cart {
-	position: relative;
-}
-
-.burger-shopping-cart img.burger-in-cart {
-	width: auto;
-	height: auto;
 }

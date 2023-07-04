@@ -1,0 +1,11 @@
+/*============ Burger shopping cart style ============= */
+.burger-shopping-cart {
+	position: relative;
+}
+
+.burger-shopping-cart img.burger-in-cart {
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+}

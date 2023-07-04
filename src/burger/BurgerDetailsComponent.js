@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import BurgerService from "../service/BurgerService";
 import { useEffect } from "react";
-
+// import { CartContext } from "../context/CartContext";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 
-const BurderDetailsComponent = () => {
+const BurgerDetailsComponent = () => {
 	const { id } = useParams();
 	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(true);
@@ -15,6 +15,9 @@ const BurderDetailsComponent = () => {
 	const [cart, setCart] = useState(() => {
 		return JSON.parse(localStorage.getItem("cartItems")) || [];
 	});
+
+	//3.
+	// const { addToCart } = useContext(CartContext);
 
 	const screenSize = "md";
 
@@ -30,7 +33,7 @@ const BurderDetailsComponent = () => {
 		carbs: "",
 	});
 
-	const loadBurderData = async () => {
+	const loadBurgerData = async () => {
 		try {
 			await BurgerService.getBurgerId(id)
 				.then((res) => {
@@ -77,7 +80,7 @@ const BurderDetailsComponent = () => {
 	}, [cart]);
 
 	useEffect(() => {
-		loadBurderData();
+		loadBurgerData();
 	}, []);
 
 	return (
@@ -200,4 +203,4 @@ const BurderDetailsComponent = () => {
 	);
 };
 
-export default BurderDetailsComponent;
+export default BurgerDetailsComponent;
