@@ -33,7 +33,7 @@ const ShoppingCartComponent = () => {
 		setOrder(true);
 		setTimeout(() => {
 			setOrder(false);
-		}, 3000);
+		}, 5000);
 
 		// const updatedCart = cart.filter((cartItem) => cartItem.quantity === 0);
 		// setCart(updatedCart);
@@ -223,15 +223,6 @@ const ShoppingCartComponent = () => {
 																		</h4>
 																	</td>
 
-																	{/* 
-																	<td className="text-warning fw-bold">
-																		{item.review}
-																	</td>
-																	<td>{item.calories}</td>
-																	<td>{item.fiber}</td>
-																	<td>{item.protein}</td>
-																	<td>{item.carbs}</td>
-																 */}
 																	<td>
 																		<button
 																			title="REMOVE"
