@@ -7,6 +7,7 @@ import "./ShoppingCartStyle.css";
 const ShoppingCartComponent = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
+	const [order, setOrder] = useState(false);
 	const [cart, setCart] = useState(() => {
 		return JSON.parse(localStorage.getItem("cartItems")) || [];
 	});
@@ -25,6 +26,23 @@ const ShoppingCartComponent = () => {
 		});
 	};
 
+	//handleSubmitOrder
+
+	const handleSubmitOrder = (e) => {
+		e.preventDefault();
+		setOrder(true);
+		setTimeout(() => {
+			setOrder(false);
+		}, 3000);
+
+		// const updatedCart = cart.filter((cartItem) => cartItem.quantity === 0);
+		// setCart(updatedCart);
+		// localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+		// toast.success("Order placed successfully!!", {
+		// 	position: "bottom-right",
+		// 	autoClose: 2000,
+		// });
+	};
 	// Increase quantity
 	// const handleIncreaseQuantity = (item) => {
 	// 	const updatedCart = cart.map((cartItem) => {
@@ -92,6 +110,27 @@ const ShoppingCartComponent = () => {
 	return (
 		<>
 			<section className="burger-shopping-cart">
+				{order ? (
+					<div className="container mt-4">
+						<div className="row">
+							<div
+								className="alert alert-warning alert-dismissible fade show"
+								role="alert"
+							>
+								<h6>
+									HMMM! It seems that you are hungry for Vast Food burgers!
+								</h6>
+								<button
+									type="button"
+									className="btn-close"
+									data-bs-dismiss="alert"
+									aria-label="Close"
+								></button>
+							</div>
+						</div>
+					</div>
+				) : null}
+
 				{loading ? (
 					<div className="loading">
 						<Loading />
@@ -253,6 +292,16 @@ const ShoppingCartComponent = () => {
 											</div>
 											{/* End of Table */}
 										</div>
+									</div>
+									{/* Add order button */}
+
+									<div className="float-end">
+										<button
+											onClick={(e) => handleSubmitOrder(e, cart.id)}
+											className="btn btn-outline-warning btn-lg w-100 mt-3"
+										>
+											SUBMIT ORDER
+										</button>
 									</div>
 								</>
 							)}

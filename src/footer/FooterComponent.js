@@ -136,7 +136,7 @@ const FooterComponent = () => {
 				&copy; VAST BURGERS, INC. {new Date().getFullYear()}. All rights
 				reserved. &nbsp; Built by{" "}
 				<Link
-					to="www.mahmoudosman.com"
+					to="http://www.mahmoudosman.com"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
