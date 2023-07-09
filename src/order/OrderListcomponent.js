@@ -8,6 +8,14 @@ const OrderListcomponent = () => {
 	const [orders, setOrders] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
 
+	const handleImageLoad = () => {
+		setLoading(false);
+	};
+
+	const handleImageError = () => {
+		setLoading(true);
+	};
+
 	// const getAllOrders = async () => {
 	// 	await BurgerService.getAllOrders()
 	// 		.then((res) => {
@@ -79,7 +87,10 @@ const OrderListcomponent = () => {
 							</div>
 						) : (
 							orders.map((order, index) => (
-								<div className="col-lg-3 col-md-4 col-sm-6" key={order.id}>
+								<div
+									className="col-lg-4 col-md-4 col-sm-6 clearfix "
+									key={order.id}
+								>
 									<div className="card mb-4">
 										<div className="card-header">
 											<h4>Order Item {index + 1}</h4>
@@ -89,12 +100,16 @@ const OrderListcomponent = () => {
 												src={order.meal_img}
 												className="img-fluid"
 												alt={order.name}
+												onLoad={handleImageLoad}
+												onError={handleImageError}
 											/>
 										) : (
 											<img
 												src={order.drink_image}
 												className="img-fluid"
 												alt={order.name}
+												onLoad={handleImageLoad}
+												onError={handleImageError}
 											/>
 										)}
 
@@ -128,7 +143,9 @@ const OrderListcomponent = () => {
 						)}
 						{/* Total price */}
 						<div className="alert alert-dark">
-							<h1>Total Price: ${totalPrice}</h1>
+							<h1>
+								Total Price: <b className="text-danger">${totalPrice}</b>
+							</h1>
 						</div>
 					</div>
 				</>
