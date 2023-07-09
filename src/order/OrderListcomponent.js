@@ -128,7 +128,7 @@ const OrderListcomponent = () => {
 						)}
 						{/* Total price */}
 						<div className="alert alert-dark">
-							<h6>Total Price: ${totalPrice}</h6>
+							<h1>Total Price: ${totalPrice}</h1>
 						</div>
 					</div>
 				</>
