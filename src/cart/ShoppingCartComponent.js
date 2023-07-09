@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 import "./ShoppingCartStyle.css";
+import BurgerService from "../service/BurgerService";
 
 const ShoppingCartComponent = () => {
+	const navigate = useNavigate();
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
-	const [order, setOrder] = useState(false);
+	const [order, setOrder] = useState([]);
+
 	const [cart, setCart] = useState(() => {
 		return JSON.parse(localStorage.getItem("cartItems")) || [];
 	});
@@ -27,22 +30,105 @@ const ShoppingCartComponent = () => {
 	};
 
 	//handleSubmitOrder
+	// const handleSubmitOrder = (e) => {
+	// 	e.preventDefault();
+	// 	setOrder(true);
+	// 	setTimeout(() => {
+	// 		toast.success("Order placed successfully!!", {
+	// 			position: "bottom-right",
+	// 			autoClose: 2000,
+	// 		});
+	// 		navigate("/orders");
+	// 		setOrder(false);
+	// 	}, 2000);
 
-	const handleSubmitOrder = (e) => {
-		e.preventDefault();
-		setOrder(true);
-		setTimeout(() => {
-			setOrder(false);
-		}, 5000);
+	// 	const updatedCart = cart.filter((cartItem) => cartItem.quantity === 0);
+	// 	setCart(updatedCart);
+	// 	localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+	// };
 
-		// const updatedCart = cart.filter((cartItem) => cartItem.quantity === 0);
-		// setCart(updatedCart);
-		// localStorage.setItem("cartItems", JSON.stringify(updatedCart));
-		// toast.success("Order placed successfully!!", {
-		// 	position: "bottom-right",
-		// 	autoClose: 2000,
-		// });
+	// const handlePlaceOrder = (e) => {
+	// 	e.PreventDefault();
+	// 	// const orderData = {
+	// 	// 	totalPrice: calculateTotalPrice(),
+	// 	// 	shippingCost:
+	// 	// 		calculateTotalPrice() > 160 ? 0 : calculateTotalPrice() * 0.06 + 3.99,
+	// 	// };
+
+	// 	// Iterate over each cart item and send a separate API request
+	// 	cart.forEach((item) => {
+	// 		const itemData = {
+	// 			id: item.id,
+	// 			name: item.name,
+	// 			meal_img: item.meal_img,
+	// 			description: item.description,
+	// 			price: item.price,
+	// 		};
+
+	// 		BurgerService.saveOrder(itemData)
+	// 			.then((res) => {
+	// 				toast.success(`Order is placed successfully!!`, {
+	// 					position: "bottom-right",
+	// 					autoClose: 3000,
+	// 				});
+	// 				setCart([]);
+	// 				setTimeout(() => {
+	// 					navigate("/orders");
+	// 					window.location.reload();
+	// 				}, 200);
+	// 			})
+	// 			.catch((error) => {
+	// 				toast.warn(`An Error ${error} has occured!!`, {
+	// 					position: "top-right",
+	// 					autoClose: 3000,
+	// 				});
+	// 				console.log(error.message);
+	// 			});
+
+	// 		console.log(itemData);
+	// 	});
+	// };
+
+	// Function to place the order
+	const handlePlaceOrder = () => {
+		// Prepare the data to send in the API request
+		const orderData = {
+			cart: cart,
+			totalPrice: totalPrice,
+		};
+
+		// Make the API request to place the order
+		fetch("https://stapes-api.onrender.com/orders", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(orderData),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				// Handle the response from the API
+				// For example, display a success message or redirect to a confirmation page
+				console.log("Order placed successfully:", data);
+				toast.success(`Order is placed successfully!!`, {
+					position: "bottom-right",
+					autoClose: 3000,
+				});
+				console.log("Order data: ", orderData);
+				navigate("/orders");
+				// Reset the cart and total price
+				setCart([]);
+			})
+			.catch((error) => {
+				// Handle any errors that occur during the API request
+				console.error("Error placing order:", error.message);
+				toast.warn("Error placing order", {
+					position: "bottom-right",
+					autoClose: 2000,
+				});
+			});
 	};
+
 	// Increase quantity
 	// const handleIncreaseQuantity = (item) => {
 	// 	const updatedCart = cart.map((cartItem) => {
@@ -110,27 +196,6 @@ const ShoppingCartComponent = () => {
 	return (
 		<>
 			<section className="burger-shopping-cart">
-				{order ? (
-					<div className="container mt-4">
-						<div className="row">
-							<div
-								className="alert alert-warning alert-dismissible fade show"
-								role="alert"
-							>
-								<h6>
-									HMMM! It seems that you are hungry for Vast Food burgers!
-								</h6>
-								<button
-									type="button"
-									className="btn-close"
-									data-bs-dismiss="alert"
-									aria-label="Close"
-								></button>
-							</div>
-						</div>
-					</div>
-				) : null}
-
 				{loading ? (
 					<div className="loading">
 						<Loading />
@@ -176,11 +241,6 @@ const ShoppingCartComponent = () => {
 															<th></th>
 															<th> Name</th>
 															<th>Price</th>
-															{/* <th>Reviews</th>
-															<th>Calories</th>
-															<th>Fiber</th>
-															<th>Protein</th>
-															<th>Carbs</th> */}
 															<th>Actions</th>
 														</tr>
 													</thead>
@@ -288,7 +348,7 @@ const ShoppingCartComponent = () => {
 
 									<div className="float-end">
 										<button
-											onClick={(e) => handleSubmitOrder(e, cart.id)}
+											onClick={handlePlaceOrder}
 											className="btn btn-outline-warning btn-lg w-100 mt-3"
 										>
 											SUBMIT ORDER

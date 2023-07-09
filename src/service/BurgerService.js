@@ -2,6 +2,7 @@ import axios from "axios";
 
 const BASE_URL = "https://stapes-api.onrender.com/burgers";
 const DRINKS_URL = "https://stapes-api.onrender.com/drinks_api";
+const ORDER_URL = "https://stapes-api.onrender.com/orders";
 
 class BurgerService {
 	getAllBurgers() {
@@ -18,6 +19,14 @@ class BurgerService {
 
 	getDrinkId(id) {
 		return axios.get(`${DRINKS_URL}/${id}`);
+	}
+
+	saveOrder() {
+		return axios.post(ORDER_URL);
+	}
+
+	getAllOrders() {
+		return axios.get(ORDER_URL);
 	}
 }
 export default new BurgerService();

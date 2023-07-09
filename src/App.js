@@ -12,6 +12,7 @@ import Loading from "./utils/Loading";
 import DrinkDetailsComponent from "./drink/DrinkDetailsComponent";
 import { CartProvider } from "./context/CartContext";
 import BurgerDetailsComponent from "./burger/BurgerDetailsComponent";
+import OrderListcomponent from "./order/OrderListcomponent";
 
 function App() {
 	const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ function App() {
 						<Navigation />
 						<React.Fragment>
 							<Routes>
+								<Route path="/orders" element={<OrderListcomponent />} />
 								<Route
 									path="/shopping-cart"
 									element={<ShoppingCartComponent />}

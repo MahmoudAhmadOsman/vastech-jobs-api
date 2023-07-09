@@ -80,6 +80,15 @@ const Navigation = () => {
 							) : (
 								""
 							)}
+							<li className="nav-item">
+								<Link
+									className="nav-link active"
+									aria-current="page"
+									to="/orders"
+								>
+									Orders
+								</Link>
+							</li>
 						</ul>
 					</div>
 				</div>
