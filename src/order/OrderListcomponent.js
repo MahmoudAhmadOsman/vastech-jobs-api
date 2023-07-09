@@ -63,7 +63,7 @@ const OrderListcomponent = () => {
 	console.log(orders);
 
 	return (
-		<div className="order-list container" style={{ height: "100vh" }}>
+		<div className="order-list container">
 			{loading ? (
 				<div>
 					<Loading />
