@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import "./NavigationStyle.css";
+import { toast } from "react-toastify";
 // import { CartContext } from "../context/CartContext";
 
 const Navigation = () => {
@@ -21,7 +22,12 @@ const Navigation = () => {
 			.then((response) => response.json())
 			.then((data) => setOrders(data))
 			.catch((error) => {
-				console.error("Error fetching orders:", error);
+				toast.warn(`An Error ${error} has occurred!!`, {
+					position: "top-right",
+					autoClose: 3000,
+				});
+
+				console.error("Error fetching orders:", error.message);
 			});
 	}, []);
 
