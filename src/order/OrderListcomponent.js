@@ -80,6 +80,14 @@ const OrderListcomponent = () => {
 				<>
 					<div className="row mt-4">
 						{orders.length === 0 ? (
+							<span></span>
+						) : (
+							<>
+								<h1 className="text-success mt-3">Your Order List</h1> <hr />
+							</>
+						)}
+
+						{orders.length === 0 ? (
 							<div className="alert alert-danger mt-4">
 								<h3 className="text-center">
 									No Orders Yet. Please Submit a New Order
@@ -91,7 +99,6 @@ const OrderListcomponent = () => {
 									className="col-lg-3 col-md-4 col-sm-6 clearfix "
 									key={order.id}
 								>
-									<h1 className="text-success mt-3">Your Order List</h1> <hr />
 									<div className="card mb-4">
 										<div className="card-header">
 											<h4>Order Item {index + 1}</h4>
@@ -145,7 +152,6 @@ const OrderListcomponent = () => {
 							))
 						)}
 						{/* Total price */}
-
 						{orders.length > 0 ? (
 							<div className="bg-light p-3">
 								<h1 className="float-end">

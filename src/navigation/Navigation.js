@@ -81,8 +81,20 @@ const Navigation = () => {
 							) : (
 								""
 							)}
+							{/* 
+							<li className="nav-item">
+								{orders.length >= 0 && (
+									<Link
+										className="nav-link active"
+										aria-current="page"
+										to="/orders"
+									>
+										Orders
+									</Link>
+								)}
+							</li> */}
 
-							{orders > 0 ? (
+							{orders ? (
 								<li className="nav-item">
 									<Link
 										className="nav-link active"
