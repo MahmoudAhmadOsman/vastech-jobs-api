@@ -72,7 +72,6 @@ const OrderListcomponent = () => {
 
 	return (
 		<div className="order-list container">
-			<h1 className="text-success mt-3">Your Order List</h1> <hr />
 			{loading ? (
 				<div>
 					<Loading />
@@ -92,6 +91,7 @@ const OrderListcomponent = () => {
 									className="col-lg-3 col-md-4 col-sm-6 clearfix "
 									key={order.id}
 								>
+									<h1 className="text-success mt-3">Your Order List</h1> <hr />
 									<div className="card mb-4">
 										<div className="card-header">
 											<h4>Order Item {index + 1}</h4>
