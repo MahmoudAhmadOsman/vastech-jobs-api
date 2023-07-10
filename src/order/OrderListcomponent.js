@@ -72,13 +72,14 @@ const OrderListcomponent = () => {
 
 	return (
 		<div className="order-list container">
+			<h1 className="text-success mt-3">Your Order List</h1> <hr />
 			{loading ? (
 				<div>
 					<Loading />
 				</div>
 			) : (
 				<>
-					<div className="row mt-3">
+					<div className="row mt-4">
 						{orders.length === 0 ? (
 							<div className="alert alert-danger mt-4">
 								<h3 className="text-center">
@@ -88,7 +89,7 @@ const OrderListcomponent = () => {
 						) : (
 							orders.map((order, index) => (
 								<div
-									className="col-lg-4 col-md-4 col-sm-6 clearfix "
+									className="col-lg-3 col-md-4 col-sm-6 clearfix "
 									key={order.id}
 								>
 									<div className="card mb-4">
@@ -114,13 +115,15 @@ const OrderListcomponent = () => {
 										)}
 
 										<div className="card-body">
-											<h3>{order.name}</h3>
-											<h4>
+											<h6>{order.name}</h6>
+											<h6>
 												Price : <b className="text-danger">${order.price}</b>
-											</h4>{" "}
+											</h6>{" "}
 											<hr />
 											<b className="h5 text-muted">Description:</b>{" "}
-											<p className="text-muted">{order.description}</p>
+											<p className="text-muted">
+												{order.description.slice(0, 45)}...
+											</p>
 											<div>
 												{order ? (
 													<div>
