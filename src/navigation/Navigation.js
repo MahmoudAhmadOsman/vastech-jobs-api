@@ -17,9 +17,17 @@ const Navigation = () => {
 	const [cartCount, setCartCount] = useState(cart.length);
 
 	useEffect(() => {
+		fetch("https://stapes-api.onrender.com/orders")
+			.then((response) => response.json())
+			.then((data) => setOrders(data))
+			.catch((error) => {
+				console.error("Error fetching orders:", error);
+			});
+	}, []);
+
+	useEffect(() => {
 		setCartCount(cart.length);
 	}, [cart]);
-
 	return (
 		<div className="site_navigation">
 			<nav className="navbar navbar-expand-sm navbar-dark bg-dark ">
@@ -81,20 +89,7 @@ const Navigation = () => {
 							) : (
 								""
 							)}
-							{/* 
-							<li className="nav-item">
-								{orders.length >= 0 && (
-									<Link
-										className="nav-link active"
-										aria-current="page"
-										to="/orders"
-									>
-										Orders
-									</Link>
-								)}
-							</li> */}
-
-							{orders ? (
+							{orders.length > 0 && (
 								<li className="nav-item">
 									<Link
 										className="nav-link active"
@@ -104,8 +99,6 @@ const Navigation = () => {
 										Orders
 									</Link>
 								</li>
-							) : (
-								""
 							)}
 						</ul>
 					</div>

@@ -68,7 +68,7 @@ const OrderListcomponent = () => {
 	useEffect(() => {
 		getAllOrders();
 	}, []);
-	console.log(orders);
+	// console.log(orders);
 
 	return (
 		<div className="order-list container">
