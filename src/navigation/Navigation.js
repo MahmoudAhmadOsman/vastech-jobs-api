@@ -82,7 +82,7 @@ const Navigation = () => {
 								""
 							)}
 
-							{orders.length > 0 ? (
+							{orders ? (
 								<li className="nav-item">
 									<Link
 										className="nav-link active"

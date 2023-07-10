@@ -144,8 +144,8 @@ const OrderListcomponent = () => {
 						{/* Total price */}
 
 						{orders.length > 0 ? (
-							<div className="alert alert-dark">
-								<h1>
+							<div className="bg-light p-3">
+								<h1 className="float-end">
 									Total Price: <b className="text-danger">${totalPrice}</b>
 								</h1>
 							</div>
