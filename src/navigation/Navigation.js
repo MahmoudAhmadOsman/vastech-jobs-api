@@ -8,6 +8,7 @@ const Navigation = () => {
 	// const { cart } = useContext(CartContext);
 	//2. extract cart from contextValue function
 	// const { cart } = useContext(CartContext);
+	const [orders, setOrders] = useState([]);
 
 	const [cart, setCart] = useState(() => {
 		return JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -80,15 +81,20 @@ const Navigation = () => {
 							) : (
 								""
 							)}
-							<li className="nav-item">
-								<Link
-									className="nav-link active"
-									aria-current="page"
-									to="/orders"
-								>
-									Orders
-								</Link>
-							</li>
+
+							{orders.length > 0 ? (
+								<li className="nav-item">
+									<Link
+										className="nav-link active"
+										aria-current="page"
+										to="/orders"
+									>
+										Orders
+									</Link>
+								</li>
+							) : (
+								""
+							)}
 						</ul>
 					</div>
 				</div>

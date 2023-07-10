@@ -142,11 +142,14 @@ const OrderListcomponent = () => {
 							))
 						)}
 						{/* Total price */}
-						<div className="alert alert-dark">
-							<h1>
-								Total Price: <b className="text-danger">${totalPrice}</b>
-							</h1>
-						</div>
+
+						{orders.length > 0 ? (
+							<div className="alert alert-dark">
+								<h1>
+									Total Price: <b className="text-danger">${totalPrice}</b>
+								</h1>
+							</div>
+						) : null}
 					</div>
 				</>
 			)}
