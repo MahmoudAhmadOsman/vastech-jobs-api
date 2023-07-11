@@ -343,7 +343,7 @@ const ShoppingCartComponent = () => {
 									</div>
 									{/* Add order button */}
 
-									<div className="float-end">
+									<div className="float-end" style={{ marginBottom: "10px" }}>
 										<button
 											onClick={handlePlaceOrder}
 											className="btn btn-outline-warning btn-lg w-100 mt-3"
