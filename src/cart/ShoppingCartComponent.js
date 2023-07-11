@@ -107,17 +107,15 @@ const ShoppingCartComponent = () => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				// Handle the response from the API
-				// For example, display a success message or redirect to a confirmation page
 				console.log("Order placed successfully:", data);
 				toast.success(`Order is placed successfully!!`, {
 					position: "bottom-right",
 					autoClose: 3000,
 				});
 				console.log("Order data: ", orderData);
-				navigate("/orders");
 				// Reset the cart and total price
 				setCart([]);
+				navigate("/orders");
 			})
 			.catch((error) => {
 				// Handle any errors that occur during the API request
