@@ -116,6 +116,9 @@ const ShoppingCartComponent = () => {
 				// Reset the cart and total price
 				navigate("/orders");
 				setCart([]);
+				setTimeout(() => {
+					window.location.reload();
+				}, 2000);
 			})
 			.catch((error) => {
 				// Handle any errors that occur during the API request
