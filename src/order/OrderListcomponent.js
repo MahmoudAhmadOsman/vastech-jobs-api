@@ -113,7 +113,9 @@ const OrderListcomponent = () => {
 											</h6>{" "}
 											<hr />
 											<b className="h5 text-muted">Description:</b>{" "}
-											<p className="text-muted">{order.description}.</p>
+											<p className="text-muted">
+												{order.description.slice(0, 50)}...
+											</p>
 											<div>
 												{order ? (
 													<div>
