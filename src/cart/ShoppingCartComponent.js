@@ -130,55 +130,51 @@ const ShoppingCartComponent = () => {
 	};
 
 	// Increase quantity
-	// const handleIncreaseQuantity = (item) => {
-	// 	const updatedCart = cart.map((cartItem) => {
-	// 		if (cartItem.id === item.id) {
-	// 			const newQuantity = Number.isNaN(cartItem.quantity)
-	// 				? 1
-	// 				: cartItem.quantity + 1;
-	// 			return { ...cartItem, quantity: newQuantity };
-	// 		}
-	// 		return cartItem;
-	// 	});
-	// 	setCart(updatedCart);
-	// };
+	const handleIncreaseQuantity = (item) => {
+		const updatedCart = cart.map((cartItem) => {
+			if (cartItem.id === item.id) {
+				const newQuantity = isNaN(cartItem.quantity)
+					? 1
+					: cartItem.quantity + 1;
+				return { ...cartItem, quantity: newQuantity };
+			}
+			return cartItem;
+		});
+		setCart(updatedCart);
+	};
 
-	// Decrease quantity
-	// const handleDecreaseQuantity = (item) => {
-	// 	const updatedCart = cart.map((cartItem) => {
-	// 		if (cartItem.id === item.id) {
-	// 			const newQuantity = Number.isNaN(cartItem.quantity)
-	// 				? 0
-	// 				: Math.max(cartItem.quantity - 1, 0);
-	// 			return { ...cartItem, quantity: newQuantity };
-	// 		}
-	// 		return cartItem;
-	// 	});
-	// 	setCart(updatedCart);
-	// };
-	// Calculate total price
-	const totalPrice = cart.reduce(
-		(total, item) => total + parseFloat(item.price),
-		0
-	);
+	//Decrease quantity
+	const handleDecreaseQuantity = (item) => {
+		const updatedCart = cart.map((cartItem) => {
+			if (cartItem.id === item.id) {
+				const newQuantity = isNaN(cartItem.quantity)
+					? 0
+					: Math.max(cartItem.quantity - 1, 0);
+				return { ...cartItem, quantity: newQuantity };
+			}
+			return cartItem;
+		});
+		setCart(updatedCart);
+	};
+
 	// Calculate subtotal for an item
-	// const calculateSubtotal = (item) => {
-	// 	if (
-	// 		item.price &&
-	// 		item.quantity &&
-	// 		!Number.isNaN(item.price) &&
-	// 		!Number.isNaN(item.quantity)
-	// 	) {
-	// 		return item.price * item.quantity;
-	// 	}
-	// 	return 0;
-	// };
+	const calculateSubtotal = (item) => {
+		if (
+			item.price &&
+			item.quantity &&
+			!Number.isNaN(item.price) &&
+			!Number.isNaN(item.quantity)
+		) {
+			return item.price * item.quantity;
+		}
+		return 0;
+	};
 
 	// // Calculate total price
-	// const totalPrice = cart.reduce(
-	// 	(total, item) => total + calculateSubtotal(item),
-	// 	0
-	// );
+	const totalPrice = cart.reduce(
+		(total, item) => total + calculateSubtotal(item),
+		0
+	);
 
 	//get localStorage key
 	useEffect(() => {
@@ -293,30 +289,31 @@ const ShoppingCartComponent = () => {
 																		</button>
 																	</td>
 
-																	{/* 
 																	<td>
-																	<div className="quantity-controls">
-																	<button
-																	onClick={() => handleDecreaseQuantity(item)}
-																	disabled={item.quantity <= 1}
-																	className="btn btn-outline-secondary"
-																	>
-																	<i className="fa fa-minus-circle"> </i>
-																	</button>
-																	<span className="quantity ms-2">
-																	{item.quantity}
-																	</span>
-																	<button
-																	onClick={() => handleIncreaseQuantity(item)}
-																	className="btn btn-outline-secondary"
-																	>
-																	<i className="fa fa-plus-circle"> </i>
-																	</button>
-																	</div>
-																	${calculateSubtotal(item).toFixed(2)}
-																	</td> 
-																
-																*/}
+																		<div className="quantity-controls">
+																			<button
+																				onClick={() =>
+																					handleDecreaseQuantity(item)
+																				}
+																				disabled={item.quantity <= 1}
+																				className="btn btn-outline-secondary"
+																			>
+																				<i className="fa fa-minus-circle"> </i>
+																			</button>
+																			<span className="quantity ms-2">
+																				{item.quantity}
+																			</span>
+																			<button
+																				onClick={() =>
+																					handleIncreaseQuantity(item)
+																				}
+																				className="btn btn-outline-secondary"
+																			>
+																				<i className="fa fa-plus-circle"> </i>
+																			</button>
+																		</div>
+																		${calculateSubtotal(item).toFixed(2)}
+																	</td>
 																</tr>
 															))}
 													</tbody>
@@ -333,7 +330,7 @@ const ShoppingCartComponent = () => {
 															<tbody>
 																<tr>
 																	<td className="text-danger fw-bold">
-																		${totalPrice}
+																		${totalPrice.toFixed(2)}
 																	</td>
 																</tr>
 															</tbody>

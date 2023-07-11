@@ -16,46 +16,32 @@ const OrderListcomponent = () => {
 		setLoading(true);
 	};
 
-	// const getAllOrders = async () => {
-	// 	await BurgerService.getAllOrders()
-	// 		.then((res) => {
-	// 			// setOrders(res.data[0].cart);
-	// 			setOrders(res.data[0]);
-	// 			// console.log("Cart data: ", res.data);
-	// 			// setOrders(res.data);
-	// 			setTotalPrice(res.data[0].totalPrice);
-	// 			setLoading(false);
-	// 		})
-	// 		.catch((error) => {
-	// 			toast.warn(`An Error ${error} has occured!!`, {
-	// 				position: "top-right",
-	// 				autoClose: 3000,
-	// 			});
-	// 			console.log(error.message);
-	// 		});
-	// };
 	const getAllOrders = async () => {
 		try {
-			const response = await fetch("https://stapes-api.onrender.com/orders");
-			if (response.ok) {
-				const data = await response.json();
-				if (Array.isArray(data)) {
-					const allOrders = data.map((order) => order.cart).flat();
-					setOrders(allOrders);
+			await BurgerService.getAllOrders()
+				.then((res) => {
+					if (Array.isArray(res.data)) {
+						const allOrders = res.data.flatMap((order) => order.cart);
+						setOrders(allOrders);
 
-					const totalPrice = data.reduce(
-						(acc, order) => acc + order.totalPrice,
-						0
-					);
-					setTotalPrice(totalPrice);
+						const totalPrice = res.data.reduce(
+							(acc, order) => acc + order.totalPrice,
+							0
+						);
+						setTotalPrice(totalPrice);
 
-					setLoading(false);
-				} else {
-					throw new Error("Invalid data format");
-				}
-			} else {
-				throw new Error("Failed to fetch orders");
-			}
+						setLoading(false);
+					} else {
+						throw new Error("Invalid data format");
+					}
+				})
+				.catch((error) => {
+					toast.warn(`An Error ${error} has occurred!!`, {
+						position: "top-right",
+						autoClose: 3000,
+					});
+					console.log(error.message);
+				});
 		} catch (error) {
 			toast.warn(`An Error ${error} has occurred!!`, {
 				position: "top-right",
@@ -68,7 +54,6 @@ const OrderListcomponent = () => {
 	useEffect(() => {
 		getAllOrders();
 	}, []);
-	// console.log(orders);
 
 	return (
 		<div className="order-list container">
@@ -128,9 +113,7 @@ const OrderListcomponent = () => {
 											</h6>{" "}
 											<hr />
 											<b className="h5 text-muted">Description:</b>{" "}
-											<p className="text-muted">
-												{order.description.slice(0, 45)}...
-											</p>
+											<p className="text-muted">{order.description}.</p>
 											<div>
 												{order ? (
 													<div>
@@ -155,7 +138,8 @@ const OrderListcomponent = () => {
 						{orders.length > 0 ? (
 							<div className="bg-light p-3">
 								<h1 className="float-end">
-									Total Price: <b className="text-danger">${totalPrice}</b>
+									Total Price:{" "}
+									<b className="text-danger">${totalPrice.toFixed(2)}</b>
 								</h1>
 							</div>
 						) : null}
