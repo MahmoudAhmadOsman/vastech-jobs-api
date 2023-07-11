@@ -114,8 +114,8 @@ const ShoppingCartComponent = () => {
 				});
 				console.log("Order data: ", orderData);
 				// Reset the cart and total price
-				setCart([]);
 				navigate("/orders");
+				setCart([]);
 			})
 			.catch((error) => {
 				// Handle any errors that occur during the API request
@@ -128,49 +128,55 @@ const ShoppingCartComponent = () => {
 	};
 
 	// Increase quantity
-	const handleIncreaseQuantity = (item) => {
-		const updatedCart = cart.map((cartItem) => {
-			if (cartItem.id === item.id) {
-				const newQuantity = isNaN(cartItem.quantity)
-					? 1
-					: cartItem.quantity + 1;
-				return { ...cartItem, quantity: newQuantity };
-			}
-			return cartItem;
-		});
-		setCart(updatedCart);
-	};
+	// const handleIncreaseQuantity = (item) => {
+	// 	const updatedCart = cart.map((cartItem) => {
+	// 		if (cartItem.id === item.id) {
+	// 			const newQuantity = isNaN(cartItem.quantity)
+	// 				? 1
+	// 				: cartItem.quantity + 1;
+	// 			return { ...cartItem, quantity: newQuantity };
+	// 		}
+	// 		return cartItem;
+	// 	});
+	// 	setCart(updatedCart);
+	// };
 
 	//Decrease quantity
-	const handleDecreaseQuantity = (item) => {
-		const updatedCart = cart.map((cartItem) => {
-			if (cartItem.id === item.id) {
-				const newQuantity = isNaN(cartItem.quantity)
-					? 0
-					: Math.max(cartItem.quantity - 1, 0);
-				return { ...cartItem, quantity: newQuantity };
-			}
-			return cartItem;
-		});
-		setCart(updatedCart);
-	};
+	// const handleDecreaseQuantity = (item) => {
+	// 	const updatedCart = cart.map((cartItem) => {
+	// 		if (cartItem.id === item.id) {
+	// 			const newQuantity = isNaN(cartItem.quantity)
+	// 				? 0
+	// 				: Math.max(cartItem.quantity - 1, 0);
+	// 			return { ...cartItem, quantity: newQuantity };
+	// 		}
+	// 		return cartItem;
+	// 	});
+	// 	setCart(updatedCart);
+	// };
 
 	// Calculate subtotal for an item
-	const calculateSubtotal = (item) => {
-		if (
-			item.price &&
-			item.quantity &&
-			!Number.isNaN(item.price) &&
-			!Number.isNaN(item.quantity)
-		) {
-			return item.price * item.quantity;
-		}
-		return 0;
-	};
+	// const calculateSubtotal = (item) => {
+	// 	if (
+	// 		item.price &&
+	// 		item.quantity &&
+	// 		!Number.isNaN(item.price) &&
+	// 		!Number.isNaN(item.quantity)
+	// 	) {
+	// 		return item.price * item.quantity;
+	// 	}
+	// 	return 0;
+	// };
 
 	// // Calculate total price
+	// const totalPrice = cart.reduce(
+	// 	(total, item) => total + calculateSubtotal(item),
+	// 	0
+	// );
+
+	// Ori: Calculate total price
 	const totalPrice = cart.reduce(
-		(total, item) => total + calculateSubtotal(item),
+		(total, item) => total + parseFloat(item.price),
 		0
 	);
 
@@ -287,7 +293,7 @@ const ShoppingCartComponent = () => {
 																		</button>
 																	</td>
 
-																	<td>
+																	{/* <td>
 																		<div className="quantity-controls">
 																			<button
 																				onClick={() =>
@@ -311,7 +317,7 @@ const ShoppingCartComponent = () => {
 																			</button>
 																		</div>
 																		${calculateSubtotal(item).toFixed(2)}
-																	</td>
+																	</td> */}
 																</tr>
 															))}
 													</tbody>
