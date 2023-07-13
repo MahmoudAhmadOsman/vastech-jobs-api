@@ -42,3 +42,11 @@
 	position: absolute;
 	right: 0;
 }
+.burger-rating {
+	color: orange;
+}
+.burger-rating span i.fa {
+	color: #ffa500;
+	margin-right: 2px;
+	font-weight: bold;
+}

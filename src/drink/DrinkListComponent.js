@@ -6,6 +6,7 @@ import "./DrinkStyle.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
+import RatingComponent from "../rating/RatingComponent";
 
 const DrinkListComponent = () => {
 	const [loading, setLoading] = useState(true);
@@ -74,6 +75,11 @@ const DrinkListComponent = () => {
 											</Link>
 											<div className="card-body">
 												<h4 className="card-title">{drink.name}</h4>
+												<span className="burger-rating">
+													<RatingComponent
+														rating={drink.stars}
+													></RatingComponent>
+												</span>
 												<p className="card-text text-muted">
 													{drink.description.slice(0, 40)}...
 												</p>{" "}

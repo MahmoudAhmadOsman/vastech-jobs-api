@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 import DrinkListComponent from "../drink/DrinkListComponent";
+import RatingComponent from "../rating/RatingComponent";
 
 const BurgerListComponent = () => {
 	const [loading, setLoading] = useState(true);
@@ -98,6 +99,11 @@ const BurgerListComponent = () => {
 											</Link>
 											<div className="card-body">
 												<h3 className="card-title">{burger.name}</h3>
+												<span className="burger-rating">
+													<RatingComponent
+														rating={burger.stars}
+													></RatingComponent>
+												</span>
 												<p className="text-warning fw-bold">
 													Reviews: {burger.review}
 												</p>
