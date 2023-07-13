@@ -163,9 +163,9 @@ const DrinkDetailsComponent = () => {
 											Price:{" "}
 											<b className="text-danger fw-bold">${drink.price}</b>
 										</h2>
-										<span className="burger-rating">
+										<p className="burger-rating">
 											<RatingComponent rating={drink.stars}></RatingComponent>
-										</span>
+										</p>
 										<h4 className="text-muted">Description</h4>
 										<p className="about">{drink.description}</p> <hr />
 										<div className="addToCartBtn mt-4">
