@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import BurgerService from "../service/BurgerService";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
+import "./OrderStyle.css";
 
 const OrderListcomponent = () => {
 	const [loading, setLoading] = useState(true);
