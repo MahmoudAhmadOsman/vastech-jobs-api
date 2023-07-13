@@ -111,18 +111,20 @@ const OrderListcomponent = () => {
 										)}
 
 										<div className="card-body">
-											<h6>{order.name}</h6>
+											<h4>{order.name}</h4>
 											<h6>
-												Price : <b className="text-danger">${order.price}</b>
+												Price :{" "}
+												<b className="text-danger fw-bold">${order.price}</b>
 											</h6>{" "}
 											<hr />
 											<b className="h5 text-muted">Description:</b>{" "}
 											<p className="text-muted">
-												{order.description.slice(0, 50)}...
+												{order.description.slice(0, 48)}...
 											</p>
 											<div>
 												{order ? (
 													<div>
+														<hr />
 														<b>Order Status: </b>
 
 														<span className="text-success">Processing</span>
