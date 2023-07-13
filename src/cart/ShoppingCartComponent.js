@@ -23,7 +23,7 @@ const ShoppingCartComponent = () => {
 		setTimeout(() => {
 			window.location.reload();
 		}, 2000);
-		toast.warn(`${item.name} removed from cart!!`, {
+		toast.error(`${item.name} removed from cart!!`, {
 			position: "bottom-right",
 			autoClose: 2000,
 		});
