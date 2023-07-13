@@ -71,8 +71,9 @@ const OrderListcomponent = () => {
 						{orders.length === 0 ? (
 							<span></span>
 						) : (
-							<div>
+							<div className="mb-3">
 								<h1 className="text-success">Your Order List</h1>
+								<hr />
 							</div>
 						)}
 
