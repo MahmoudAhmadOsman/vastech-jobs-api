@@ -6,6 +6,7 @@ import { useEffect } from "react";
 // import { CartContext } from "../context/CartContext";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
+import RatingComponent from "../rating/RatingComponent";
 
 const BurgerDetailsComponent = () => {
 	const { id } = useParams();
@@ -160,8 +161,11 @@ const BurgerDetailsComponent = () => {
 							)}
 						</div>
 						<h2>
-							Price: <b className="text-danger fw-bold">${burger.price}</b>
+							Price: <b className="text-danger fw-bold ">${burger.price}</b>
 						</h2>
+						<span className="burger-rating">
+							<RatingComponent rating={burger.stars}></RatingComponent>
+						</span>
 						<p>
 							<b className="text-warning">Reviews:</b> {burger.review}
 						</p>

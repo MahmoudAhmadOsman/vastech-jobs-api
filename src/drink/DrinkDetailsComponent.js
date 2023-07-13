@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import BurgerService from "../service/BurgerService";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
+import RatingComponent from "../rating/RatingComponent";
 
 const DrinkDetailsComponent = () => {
 	const { id } = useParams();
@@ -162,6 +163,9 @@ const DrinkDetailsComponent = () => {
 											Price:{" "}
 											<b className="text-danger fw-bold">${drink.price}</b>
 										</h2>
+										<span className="burger-rating">
+											<RatingComponent rating={drink.stars}></RatingComponent>
+										</span>
 										<h4 className="text-muted">Description</h4>
 										<p className="about">{drink.description}</p> <hr />
 										<div className="addToCartBtn mt-4">
