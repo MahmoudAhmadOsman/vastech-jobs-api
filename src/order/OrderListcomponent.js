@@ -139,8 +139,8 @@ const OrderListcomponent = () => {
 						)}
 						{/* Total price */}
 						{orders.length > 0 ? (
-							<div className="bg-light p-3">
-								<h1 className="float-end">
+							<div>
+								<h1 className="float-end bg-light p-3">
 									Total Price:{" "}
 									<b className="text-danger">${totalPrice.toFixed(2)}</b>
 								</h1>
