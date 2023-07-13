@@ -123,11 +123,12 @@ const OrderListcomponent = () => {
 											<div>
 												{order ? (
 													<div>
-														<b>Status: </b>
+														<b>Order Status: </b>
 
 														<span className="text-success">Processing</span>
 														<p>
-															<b>Order Date:</b> {orderDate}
+															<b>Order Date:</b>{" "}
+															<span className="text-warning">{orderDate}</span>
 														</p>
 													</div>
 												) : (
