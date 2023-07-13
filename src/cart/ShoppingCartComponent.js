@@ -95,6 +95,7 @@ const ShoppingCartComponent = () => {
 		const orderData = {
 			cart: cart,
 			totalPrice: totalPrice,
+			date: new Date().toISOString(), // Add the current date
 		};
 
 		// Make the API request to place the order

@@ -8,6 +8,7 @@ const OrderListcomponent = () => {
 	const [loading, setLoading] = useState(true);
 	const [orders, setOrders] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
+	const [orderDate, setOrderDate] = useState(0);
 
 	const handleImageLoad = () => {
 		setLoading(false);
@@ -30,12 +31,14 @@ const OrderListcomponent = () => {
 							0
 						);
 						setTotalPrice(totalPrice);
+						setOrderDate(new Date().toLocaleDateString());
 
 						setLoading(false);
 					} else {
 						throw new Error("Invalid data format");
 					}
 				})
+
 				.catch((error) => {
 					toast.warn(`An Error ${error} has occurred!!`, {
 						position: "top-right",
@@ -68,9 +71,9 @@ const OrderListcomponent = () => {
 						{orders.length === 0 ? (
 							<span></span>
 						) : (
-							<>
-								<h1 className="text-success mt-3">Your Order List</h1> <hr />
-							</>
+							<div>
+								<h1 className="text-success">Your Order List</h1>
+							</div>
 						)}
 
 						{orders.length === 0 ? (
@@ -87,7 +90,7 @@ const OrderListcomponent = () => {
 								>
 									<div className="card mb-4">
 										<div className="card-header">
-											<h4>Order Item {index + 1}</h4>
+											<h6>Order Item {index + 1}</h6>
 										</div>
 										{order.meal_img ? (
 											<img
@@ -120,9 +123,12 @@ const OrderListcomponent = () => {
 											<div>
 												{order ? (
 													<div>
-														{" "}
-														Status:{" "}
+														<b>Status: </b>
+
 														<span className="text-success">Processing</span>
+														<p>
+															<b>Order Date:</b> {orderDate}
+														</p>
 													</div>
 												) : (
 													<div>
