@@ -85,7 +85,7 @@ const OrderListcomponent = () => {
 							</div>
 						) : (
 							<>
-								<div className="table-responsive">
+								<div className="table-responsive  shadow-lg p-3 mb-5 bg-body rounded">
 									<table className="table table-striped table-hover table-bordered table-sm ">
 										<thead>
 											<tr>
