@@ -84,6 +84,83 @@ const OrderListcomponent = () => {
 								</h3>
 							</div>
 						) : (
+							<>
+								<div className="table-responsive">
+									<table className="table table-striped table-hover table-bordered table-sm ">
+										<thead>
+											<tr>
+												<th scope="col">Item #</th>
+												<th scope="col">Name</th>
+												<th scope="col">Image</th>
+												<th scope="col">Price</th>
+												<th scope="col">Description</th>
+												<th scope="col">Order Status</th>
+												<th scope="col">Order Date</th>
+											</tr>
+										</thead>
+										<tbody>
+											{orders.map((order, index) => (
+												<tr key={order.id}>
+													<th scope="row">{index + 1}</th>
+													<td>{order.name}</td>
+													<td className="order-image">
+														{order.meal_img ? (
+															<img
+																src={order.meal_img}
+																className="img-fluid"
+																alt={order.name}
+																onLoad={handleImageLoad}
+																onError={handleImageError}
+															/>
+														) : (
+															<img
+																src={order.drink_image}
+																className="img-fluid"
+																alt={order.name}
+																onLoad={handleImageLoad}
+																onError={handleImageError}
+															/>
+														)}
+													</td>
+													<td>
+														<b className="text-danger fw-bold">
+															${order.price}
+														</b>
+													</td>
+													<td className="text-muted">
+														{order.description.slice(0, 48)}...
+													</td>
+													<td>
+														{order ? (
+															<div className="text-center">
+																<span className="text-success">Processing</span>
+															</div>
+														) : (
+															<div>
+																Status
+																<span className="text-danger">Pending</span>
+															</div>
+														)}
+													</td>
+													<td>
+														<span className="text-warning">{orderDate}</span>
+													</td>
+												</tr>
+											))}
+										</tbody>
+										<caption>Number of order items {orders.length}</caption>
+									</table>
+								</div>
+							</>
+						)}
+
+						{/* {orders.length === 0 ? (
+							<div className="alert alert-danger mt-4">
+								<h3 className="text-center">
+									No Orders Yet. Please Submit a New Order
+								</h3>
+							</div>
+						) : (
 							orders.map((order, index) => (
 								<div
 									className="col-lg-3 col-md-4 col-sm-6 clearfix "
@@ -146,7 +223,7 @@ const OrderListcomponent = () => {
 									</div>
 								</div>
 							))
-						)}
+						)} */}
 						{/* Total price */}
 						{orders.length > 0 ? (
 							<div>
