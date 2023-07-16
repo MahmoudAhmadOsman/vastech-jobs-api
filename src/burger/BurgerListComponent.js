@@ -15,6 +15,9 @@ const BurgerListComponent = () => {
 	const [burgers, setBurgers] = useState([]);
 	const [drinks, setDrinks] = useState([]);
 
+	const [currentPage, setCurrentPage] = useState(1);
+	const itemsPerPage = 4; // Number of burgers to show per
+
 	// console.log("Drinks: ", drinks);
 
 	const getAllBurgers = async () => {
@@ -62,6 +65,15 @@ const BurgerListComponent = () => {
 		getAllDrinks();
 	}, []);
 
+	// Calculate the index of the first and last burger on the current page
+	const lastIndex = currentPage * itemsPerPage;
+	const firstIndex = lastIndex - itemsPerPage;
+	const currentBurgers = burgers.slice(firstIndex, lastIndex);
+
+	// Function to handle pagination button clicks
+	const handlePageChange = (pageNumber) => {
+		setCurrentPage(pageNumber);
+	};
 	return (
 		<section className="burger">
 			<div className="container mt-3">
@@ -78,7 +90,8 @@ const BurgerListComponent = () => {
 						<>
 							<h1 className="text-danger">Vast Burgers</h1> <hr />
 							<div className="row">
-								{burgers.map((burger) => (
+								{/* {burgers.map((burger) => ( */}
+								{currentBurgers.map((burger) => (
 									<div
 										key={burger.id}
 										className="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3"
@@ -127,6 +140,25 @@ const BurgerListComponent = () => {
 										</div>
 									</div>
 								))}
+							</div>
+							{/* Pagination buttons */}
+							<div className="pagination justify-content-center">
+								<ul className="pagination">
+									{Array.from({
+										length: Math.ceil(burgers.length / itemsPerPage),
+									}).map((_, index) => (
+										<li className="page-item" key={index}>
+											<button
+												className={`page-link ${
+													currentPage === index + 1 ? "active" : ""
+												}`}
+												onClick={() => handlePageChange(index + 1)}
+											>
+												{index + 1}
+											</button>
+										</li>
+									))}
+								</ul>
 							</div>
 							<DrinkListComponent />
 						</>
