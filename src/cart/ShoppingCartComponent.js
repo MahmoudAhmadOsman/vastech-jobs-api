@@ -124,11 +124,17 @@ const ShoppingCartComponent = () => {
 			})
 			.catch((error) => {
 				// Handle any errors that occur during the API request
-				console.error("Error placing order:", error.message);
-				toast.warn("Error placing order", {
-					position: "bottom-right",
-					autoClose: 2000,
-				});
+				console.error(
+					`Error ${error.message} has occured while placing an order`,
+					error.message
+				);
+				toast.warn(
+					`An error ${error.message} has occured while placing an order`,
+					{
+						position: "bottom-right",
+						autoClose: 2000,
+					}
+				);
 			});
 	};
 
