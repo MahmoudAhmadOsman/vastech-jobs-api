@@ -115,8 +115,9 @@ const ShoppingCartComponent = () => {
 				});
 				console.log("Order data: ", orderData);
 				// Reset the cart and total price
-				navigate("/orders");
 				setCart([]);
+				localStorage.clear(); // Clear local storage
+				navigate("/orders");
 				setTimeout(() => {
 					window.location.reload();
 				}, 2000);
