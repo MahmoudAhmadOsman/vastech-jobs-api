@@ -127,7 +127,10 @@ const BurgerListComponent = () => {
 												<button className="btn btn-outline-danger fw-bold btn-sm">
 													${burger.price}
 												</button>
-												<button className="btn btn-outline-secondary btn-sm  ms-1">
+												<button
+													className="btn btn-outline-secondary btn-sm  ms-1"
+													disabled
+												>
 													{burger.calories} calories
 												</button>
 												<Link
