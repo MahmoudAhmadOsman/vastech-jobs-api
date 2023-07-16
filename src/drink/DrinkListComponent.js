@@ -63,7 +63,8 @@ const DrinkListComponent = () => {
 						</div>
 					) : (
 						<>
-							<h1 className="text-danger">Beverages</h1> <hr />
+							<h1 className="text-danger bg-dark text-white p-3">Beverages</h1>{" "}
+							<hr />
 							<div className="row">
 								{currentDrinks.map((drink) => (
 									<div
