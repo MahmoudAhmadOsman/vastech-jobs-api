@@ -112,20 +112,53 @@ const DrinkListComponent = () => {
 							{/* Pagination buttons */}
 							<div className="pagination justify-content-center">
 								<ul className="pagination">
+									{/* Previous button */}
+									<li
+										className={`page-item ${
+											currentPage === 1 ? "disabled" : ""
+										}`}
+									>
+										<button
+											className="page-link"
+											onClick={() => handlePageChange(currentPage - 1)}
+										>
+											Previous
+										</button>
+									</li>
+
 									{Array.from({
 										length: Math.ceil(drinks.length / itemsPerPage),
 									}).map((_, index) => (
-										<li className="page-item" key={index}>
+										<li
+											className={`page-item ${
+												currentPage === index + 1 ? "active" : ""
+											}`}
+											key={index}
+										>
 											<button
-												className={`page-link ${
-													currentPage === index + 1 ? "active" : ""
-												}`}
+												className="page-link"
 												onClick={() => handlePageChange(index + 1)}
 											>
 												{index + 1}
 											</button>
 										</li>
 									))}
+
+									{/* Next button */}
+									<li
+										className={`page-item ${
+											currentPage === Math.ceil(drinks.length / itemsPerPage)
+												? "disabled"
+												: ""
+										}`}
+									>
+										<button
+											className="page-link"
+											onClick={() => handlePageChange(currentPage + 1)}
+										>
+											Next
+										</button>
+									</li>
 								</ul>
 							</div>
 						</>
