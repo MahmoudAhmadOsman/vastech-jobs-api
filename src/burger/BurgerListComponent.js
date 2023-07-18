@@ -1,8 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BurgerService from "../service/BurgerService";
-import { useEffect } from "react";
-import "./BurgerStyle.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
@@ -14,27 +11,19 @@ const BurgerListComponent = () => {
 	const [error, setError] = useState(false);
 	const [burgers, setBurgers] = useState([]);
 	const [drinks, setDrinks] = useState([]);
+	const [searchTerm, setSearchTerm] = useState(""); // State for search input
 
 	const [currentPage, setCurrentPage] = useState(1);
-	const itemsPerPage = 4; // Number of burgers to show per
-
-	// console.log("Drinks: ", drinks);
+	const itemsPerPage = 4; // Number of burgers to show per page
 
 	const getAllBurgers = async () => {
 		try {
-			await BurgerService.getAllBurgers()
-				.then((res) => {
-					setBurgers(res.data);
-					setLoading(false);
-				})
-				.catch((error) => {
-					setError(error);
-					toast.warn(`An Error ${error} has occured!!`, {
-						position: "bottom-right",
-					});
-				});
+			const response = await BurgerService.getAllBurgers();
+			setBurgers(response.data);
+			setLoading(false);
 		} catch (error) {
-			toast.warn(`An Error ${error} has occured!!`, {
+			setError(error);
+			toast.warn(`An Error ${error} has occurred!!`, {
 				position: "bottom-right",
 			});
 		}
@@ -42,20 +31,12 @@ const BurgerListComponent = () => {
 
 	const getAllDrinks = async () => {
 		try {
-			await BurgerService.getAllDrinks()
-				.then((res) => {
-					setDrinks(res.data);
-					setLoading(false);
-				})
-				.catch((error) => {
-					setError(error);
-					toast.warn(`An Error ${error} has occured!!`, {
-						position: "bottom-right",
-					});
-				});
+			const response = await BurgerService.getAllDrinks();
+			setDrinks(response.data);
 		} catch (error) {
-			toast.warn(`An Error ${error} has occured!!`, {
-				position: "bottom-right",
+			setError(error);
+			toast.warn(`An Error ${error} has occurred!!`, {
+				position: "top-right",
 			});
 		}
 	};
@@ -65,15 +46,26 @@ const BurgerListComponent = () => {
 		getAllDrinks();
 	}, []);
 
-	// Calculate the index of the first and last burger on the current page
-	const lastIndex = currentPage * itemsPerPage;
-	const firstIndex = lastIndex - itemsPerPage;
-	const currentBurgers = burgers.slice(firstIndex, lastIndex);
+	// Function to handle search input change
+	const handleSearchChange = (event) => {
+		setSearchTerm(event.target.value);
+		setCurrentPage(1); // Reset current page to the first page when search changes
+	};
 
 	// Function to handle pagination button clicks
 	const handlePageChange = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
+
+	// Calculate the index of the first and last burger on the current page
+	const lastIndex = currentPage * itemsPerPage;
+	const firstIndex = lastIndex - itemsPerPage;
+	const currentBurgers = burgers
+		.filter((burger) =>
+			burger.name.toLowerCase().includes(searchTerm.toLowerCase())
+		)
+		.slice(firstIndex, lastIndex);
+
 	return (
 		<section className="burger">
 			<div className="container mt-3">
@@ -84,13 +76,24 @@ const BurgerListComponent = () => {
 						</div>
 					) : error ? (
 						<div className="alert alert-danger text-center">
-							<h5>{setError(error.message)}</h5>
+							<h5>{error.message}</h5>
 						</div>
 					) : (
 						<>
-							<h1 className="text-danger">Vast Burgers</h1> <hr />
+							<h1 className="text-danger">Vast Burgers</h1>
+							<hr />
 							<div className="row">
-								{/* {burgers.map((burger) => ( */}
+								<div className="col-md-12 mb-3">
+									<div className="input-group mb-4">
+										<input
+											type="text"
+											className="form-control form-control-lg"
+											placeholder="Search Burgers and Drinks..."
+											value={searchTerm}
+											onChange={handleSearchChange}
+										/>
+									</div>
+								</div>
 								{currentBurgers.map((burger) => (
 									<div
 										key={burger.id}
@@ -99,9 +102,7 @@ const BurgerListComponent = () => {
 										<div className="card">
 											<Link to={`/view-burger/${burger.id}`}>
 												{burger.meal_img.length === 0 ? (
-													<>
-														<span>Loading...</span>
-													</>
+													<span>Loading...</span>
 												) : (
 													<img
 														className="card-img-top img-fluid"
@@ -113,16 +114,14 @@ const BurgerListComponent = () => {
 											<div className="card-body">
 												<h3 className="card-title">{burger.name}</h3>
 												<span className="burger-rating">
-													<RatingComponent
-														rating={burger.stars}
-													></RatingComponent>
+													<RatingComponent rating={burger.stars} />
 												</span>
 												<p className="text-warning fw-bold">
 													Reviews: {burger.review}
 												</p>
 												<p className="card-text text-muted">
 													{burger.description.slice(0, 50)}...
-												</p>{" "}
+												</p>
 												<hr />
 												<button className="btn btn-outline-danger fw-bold btn-sm">
 													${burger.price}
@@ -147,7 +146,6 @@ const BurgerListComponent = () => {
 							{/* Pagination buttons */}
 							<div className="pagination justify-content-center">
 								<ul className="pagination">
-									{/* Previous button */}
 									<li
 										className={`page-item ${
 											currentPage === 1 ? "disabled" : ""
@@ -162,7 +160,13 @@ const BurgerListComponent = () => {
 									</li>
 
 									{Array.from({
-										length: Math.ceil(burgers.length / itemsPerPage),
+										length: Math.ceil(
+											burgers.filter((burger) =>
+												burger.name
+													.toLowerCase()
+													.includes(searchTerm.toLowerCase())
+											).length / itemsPerPage
+										),
 									}).map((_, index) => (
 										<li
 											className={`page-item ${
@@ -179,10 +183,16 @@ const BurgerListComponent = () => {
 										</li>
 									))}
 
-									{/* Next button */}
 									<li
 										className={`page-item ${
-											currentPage === Math.ceil(burgers.length / itemsPerPage)
+											currentPage ===
+											Math.ceil(
+												burgers.filter((burger) =>
+													burger.name
+														.toLowerCase()
+														.includes(searchTerm.toLowerCase())
+												).length / itemsPerPage
+											)
 												? "disabled"
 												: ""
 										}`}
