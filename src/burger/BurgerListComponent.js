@@ -94,54 +94,64 @@ const BurgerListComponent = () => {
 										/>
 									</div>
 								</div>
-								{currentBurgers.map((burger) => (
-									<div
-										key={burger.id}
-										className="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3"
-									>
-										<div className="card">
-											<Link to={`/view-burger/${burger.id}`}>
-												{burger.meal_img.length === 0 ? (
-													<span>Loading...</span>
-												) : (
-													<img
-														className="card-img-top img-fluid"
-														src={burger.meal_img}
-														alt={burger.name}
-													/>
-												)}
-											</Link>
-											<div className="card-body">
-												<h3 className="card-title">{burger.name}</h3>
-												<span className="burger-rating">
-													<RatingComponent rating={burger.stars} />
-												</span>
-												<p className="text-warning fw-bold">
-													Reviews: {burger.review}
-												</p>
-												<p className="card-text text-muted">
-													{burger.description.slice(0, 50)}...
-												</p>
-												<hr />
-												<button className="btn btn-outline-danger fw-bold btn-sm">
-													${burger.price}
-												</button>
-												<button
-													className="btn btn-outline-secondary btn-sm  ms-1"
-													disabled
-												>
-													{burger.calories} calories
-												</button>
-												<Link
-													to={`/view-burger/${burger.id}`}
-													className="btn btn-outline-warning btn-sm ms-1"
-												>
-													VIEW
+								{currentBurgers.length === 0 ? (
+									<div className="col-md-12 text-center mt-4">
+										<h5>
+											The searched term{" "}
+											<b className="text-danger">[ {searchTerm} ]</b> is not
+											found!
+										</h5>
+									</div>
+								) : (
+									currentBurgers.map((burger) => (
+										<div
+											key={burger.id}
+											className="col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-3"
+										>
+											<div className="card">
+												<Link to={`/view-burger/${burger.id}`}>
+													{burger.meal_img.length === 0 ? (
+														<span>Loading...</span>
+													) : (
+														<img
+															className="card-img-top img-fluid"
+															src={burger.meal_img}
+															alt={burger.name}
+														/>
+													)}
 												</Link>
+												<div className="card-body">
+													<h3 className="card-title">{burger.name}</h3>
+													<span className="burger-rating">
+														<RatingComponent rating={burger.stars} />
+													</span>
+													<p className="text-warning fw-bold">
+														Reviews: {burger.review}
+													</p>
+													<p className="card-text text-muted">
+														{burger.description.slice(0, 50)}...
+													</p>
+													<hr />
+													<button className="btn btn-outline-danger fw-bold btn-sm">
+														${burger.price}
+													</button>
+													<button
+														className="btn btn-outline-secondary btn-sm  ms-1"
+														disabled
+													>
+														{burger.calories} calories
+													</button>
+													<Link
+														to={`/view-burger/${burger.id}`}
+														className="btn btn-outline-warning btn-sm ms-1"
+													>
+														VIEW
+													</Link>
+												</div>
 											</div>
 										</div>
-									</div>
-								))}
+									))
+								)}
 							</div>
 							{/* Pagination buttons */}
 							<div className="pagination justify-content-center">
