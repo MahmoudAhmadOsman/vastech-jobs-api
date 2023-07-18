@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import Loading from "../utils/Loading";
 import DrinkListComponent from "../drink/DrinkListComponent";
 import RatingComponent from "../rating/RatingComponent";
-
+import "./BurgerStyle.css";
 const BurgerListComponent = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
