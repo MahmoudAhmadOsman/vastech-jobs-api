@@ -363,7 +363,7 @@ const ShoppingCartComponent = () => {
 											onClick={handlePlaceOrder}
 											className="btn btn-outline-warning btn-lg w-100 mt-3"
 										>
-											SUBMIT ORDER
+											PLACE ORDER
 										</button>
 									</div>
 								</>
