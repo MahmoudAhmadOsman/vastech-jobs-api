@@ -38,7 +38,7 @@ git clone https://github.com/MahmoudAhmadOsman/vast-burgers-api.git
 2. Navigate to the project directory:
 
 ```bash
-cd vast-burgers-react
+cd vast-burgers-api
 ```
 
 3. Install the dependencies:
