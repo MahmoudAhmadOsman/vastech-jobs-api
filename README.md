@@ -78,25 +78,25 @@ vast-burgers-react/
   └── README.md            # Project documentation (you are here)
 ```
 
-### VAST BURGERS HOMEPAGE
+### VAST BURGERS - HOMEPAGE
 
-![VAST BURGERS HOMEPAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-home-page.png)
+![HOMEPAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-home-page.png)
 
-### VAST BURGERS SINGLE PAGE
+### VAST BURGERS - LANGING PAGE
 
-![VAST BURGER SINGLE PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-view.png.png)
+![LANDING PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burgers-landing-page.png)
 
-### VAST BURGERS SHOPPING CART
+### VAST BURGERS - SINGLE PAGE
 
-![VAST BURGERS SHOPPING CART](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-shopping-cart..png)
+![SINGLE PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-view.png.png)
 
-### VAST BURGERS LANGING PAGE
+### VAST BURGERS - SHOPPING CART
 
-![VAST BURGERS LANDING PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burgers-landing-page.png)
+![VSHOPPING CART](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-shopping-cart..png)
 
-### ORDER LANGING PAGE
+### VAST BURGERS - ORDER PAGE
 
-![VAST BURGERS LANDING PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/order-landing-page.png)
+![ORDER PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/order-landing-page.png)
 
 ## Contributing
 
