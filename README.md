@@ -32,7 +32,7 @@ To get a local copy of the project up and running, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/vast-burgers-react.git
+git clone https://github.com/MahmoudAhmadOsman/vast-burgers-api.git
 ```
 
 2. Navigate to the project directory:
@@ -78,20 +78,21 @@ vast-burgers-react/
   └── README.md            # Project documentation (you are here)
 ```
 
+### VAST BURGERS HOMEPAGE
 
-VAST BURGERS HOMEPAGE
 ![VAST BURGERS HOMEPAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-home-page.png)
 
-VAST BURGERS SINGLE PAGE
+### VAST BURGERS SINGLE PAGE
+
 ![VAST BURGERS SINGLE PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-view.png)
 
-VAST BURGERS SHOPPING CART
+### VAST BURGERS SHOPPING CART
+
 ![VAST BURGERS SHOPPING CART](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burger-shopping-cart.png)
 
-VAST BURGERS LANGING PAGE
+### VAST BURGERS LANGING PAGE
+
 ![VAST BURGERS LANDING PAGE](https://github.com/MahmoudAhmadOsman/vast-burgers-api/blob/master/public/assets/images/burgers-landing-page.png)
-
-
 
 ## Contributing
 
