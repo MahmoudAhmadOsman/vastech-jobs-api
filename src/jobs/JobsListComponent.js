@@ -69,22 +69,11 @@ const JobsListComponent = () => {
 								<h2 className="text-dark">Find a job</h2> <hr />
 								<div className="table-responsive">
 									<table className="table table-borderless">
-										<thead>
-											<tr>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-												<th></th>
-											</tr>
-										</thead>
 										<tbody>
 											{currentJobs.map((job) => (
-												<tr key={job.id}>
+												<tr key={job.id} className="card mb-2">
 													{/* Your job item rendering code goes here */}
-													<td>
+													<td className="card-body">
 														<Link to={job.companyURL}>
 															<img
 																className="img-fluid rounded-circle img-thumbnail mb-2"
@@ -109,7 +98,7 @@ const JobsListComponent = () => {
 															style={{ fontSize: "10px" }}
 														>
 															Job Title
-														</small>{" "}
+														</small>
 														<br />
 														<Link to={`${job.companyURL}`}>{job.title}</Link>
 													</td>
@@ -166,11 +155,12 @@ const JobsListComponent = () => {
 														></i>
 														&nbsp;&nbsp;
 														<small className="text-muted">
-															{job.postedDate} -{" "}
+															Posted on: &nbsp;
+															{job.postedDate} -
 															<small style={{ fontSize: "12px" }}>
 																{isApplicationClosed(job.postedDate)
 																	? "Application Closed"
-																	: "(Closing Date)"}
+																	: " (Closing Date)"}
 															</small>
 														</small>
 													</td>
