@@ -131,7 +131,7 @@ const FooterComponent = () => {
 				className="text-center p-4"
 				style={{ backgroundColor: "rgba(255 255 255 / 5%)" }}
 			>
-				&copy; VAST BURGERS, INC. {new Date().getFullYear()}. All rights
+				&copy; VASTECH JOBS, INC. {new Date().getFullYear()}. All rights
 				reserved. &nbsp; Built by{" "}
 				<Link
 					to="http://www.mahmoudosman.com"
