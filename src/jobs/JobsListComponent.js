@@ -170,7 +170,7 @@ const JobsListComponent = () => {
 															<small style={{ fontSize: "12px" }}>
 																{isApplicationClosed(job.postedDate)
 																	? "Application Closed"
-																	: "(Closing date)"}
+																	: "(Closing Date)"}
 															</small>
 														</small>
 													</td>
