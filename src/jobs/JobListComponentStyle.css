@@ -6,11 +6,6 @@
 	background-color: #ffffff;
 }
 
-.job-list .disabled {
-	border: 1px solid #888;
-	color: #888;
-}
-
 /* Small devices (≥576px) and up */
 @media (min-width: 576px) {
 	.job-list .jobs img {
