@@ -132,7 +132,7 @@ const FooterComponent = () => {
 				style={{ backgroundColor: "rgba(255 255 255 / 5%)" }}
 			>
 				&copy; VASTECH JOBS, INC. {new Date().getFullYear()}. All rights
-				reserved. &nbsp; Desgined & build by &nbsp;
+				reserved. &nbsp; Desgined & built by &nbsp;
 				<Link
 					to="http://www.mahmoudosman.com"
 					target="_blank"
