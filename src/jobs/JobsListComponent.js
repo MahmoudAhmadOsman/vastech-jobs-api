@@ -156,7 +156,7 @@ const JobsListComponent = () => {
 														&nbsp;&nbsp;
 														<small className="text-muted">
 															Posted on: &nbsp;
-															{job.postedDate} -
+															{job.postedDate} - &nbsp;
 															<small style={{ fontSize: "12px" }}>
 																{isApplicationClosed(job.postedDate)
 																	? "Application Closed"
