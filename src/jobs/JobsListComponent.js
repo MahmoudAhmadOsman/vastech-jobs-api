@@ -71,7 +71,7 @@ const JobsListComponent = () => {
 									<table className="table table-borderless">
 										<tbody>
 											{currentJobs.map((job) => (
-												<tr key={job.id} className="card mb-2">
+												<tr key={job.id} className="card mb-2 p-4">
 													{/* Your job item rendering code goes here */}
 													<td className="card-body">
 														<Link to={job.companyURL}>
