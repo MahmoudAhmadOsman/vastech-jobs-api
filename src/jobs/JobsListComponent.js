@@ -72,13 +72,13 @@ const JobsListComponent = () => {
 										<tbody>
 											{currentJobs.map((job) => (
 												<tr key={job.id} className="card mb-2 p-4">
-													{/* Your job item rendering code goes here */}
 													<td className="card-body">
 														<Link to={job.companyURL}>
 															<img
 																className="img-fluid rounded-circle img-thumbnail mb-2"
 																src={job.compnayLogo}
 																alt={job.title}
+																title={job.companyName}
 															/>
 														</Link>
 													</td>
