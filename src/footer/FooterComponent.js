@@ -47,7 +47,7 @@ const FooterComponent = () => {
 							{/* Content */}
 							<h6 className="text-uppercase fw-bold mb-4">
 								<i className="fa fa-gem me-3" />
-								VADTECH JOBS
+								VASTECH JOBS
 							</h6>
 							<p>
 								Mahmoud Osman is the designer and developer behind this project.
