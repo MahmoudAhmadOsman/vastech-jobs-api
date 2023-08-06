@@ -106,7 +106,7 @@ const JobsListComponent = () => {
 														<Link to={`${job.companyURL}`}>{job.title}</Link>
 													</td>
 													<td className="text-muted">
-														<span>Pays</span> <br />
+														<span>Pay</span> <br />
 														<small style={{ fontSize: "11px" }}>
 															<i className="fa fa-chevron-right"></i> &nbsp; $
 															{job.pay.toLocaleString("en-US", {
