@@ -1,0 +1,46 @@
+.job-list {
+	position: relative;
+}
+
+.job-list .jobs {
+	background-color: #ffffff;
+}
+
+/* .job-list .jobs img {
+	width: 60px;
+	height: auto;
+} */
+/* Small devices (≥576px) and up */
+@media (min-width: 576px) {
+	.job-list .jobs img {
+		width: 60px;
+	}
+}
+
+/* Medium devices (≥768px) and up */
+@media (min-width: 768px) {
+	.job-list .jobs img {
+		width: 60px;
+	}
+}
+
+/* Large devices (≥992px) and up */
+@media (min-width: 992px) {
+	.job-list .jobs img {
+		width: 60px;
+	}
+}
+
+/* Extra-large devices (≥1200px) and up */
+@media (min-width: 1200px) {
+	.job-list .jobs img {
+		width: 60px;
+	}
+}
+
+/* Extra-extra-large devices (≥1400px) and up */
+@media (min-width: 1400px) {
+	.job-list .jobs img {
+		width: 60px;
+	}
+}
