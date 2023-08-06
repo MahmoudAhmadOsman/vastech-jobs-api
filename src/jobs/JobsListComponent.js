@@ -87,9 +87,23 @@ const JobsListComponent = () => {
 														</Link>
 													</td>
 													<td>
+														<small
+															className="text-muted"
+															style={{ fontSize: "10px" }}
+														>
+															Company Name
+														</small>{" "}
+														<br />
 														<h6>{job.companyName}</h6>
 													</td>
 													<td>
+														<small
+															className="text-muted"
+															style={{ fontSize: "10px" }}
+														>
+															Job Title
+														</small>{" "}
+														<br />
 														<Link to={`${job.companyURL}`}>{job.title}</Link>
 													</td>
 													<td>
@@ -106,8 +120,17 @@ const JobsListComponent = () => {
 															</>
 														) : (
 															<>
-																<span>{job.description.substring(0, 100)}</span>
-																{job.description.length > 100 && (
+																<span>
+																	<small
+																		className="text-muted"
+																		style={{ fontSize: "10px" }}
+																	>
+																		Job Description
+																	</small>{" "}
+																	<br />
+																	{job.description.substring(0, 60)}
+																</span>
+																{job.description.length > 60 && (
 																	<>
 																		...
 																		<button
@@ -126,11 +149,9 @@ const JobsListComponent = () => {
 														<i
 															className="fa fa-map-marker"
 															aria-hidden="true"
-														></i>{" "}
+														></i>
 														&nbsp;
-														<small className="text-muted">
-															{job.state}
-														</small>{" "}
+														<small className="text-muted">{job.state}</small>
 														&nbsp;&nbsp;| &nbsp;&nbsp;
 														<i
 															className="fa fa-calendar-o"
