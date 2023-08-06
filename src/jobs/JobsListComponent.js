@@ -108,7 +108,7 @@ const JobsListComponent = () => {
 													<td className="text-muted">
 														<span>Pay</span> <br />
 														<small style={{ fontSize: "11px" }}>
-															<i className="fa fa-chevron-right"></i> &nbsp; $
+															<i className="fa fa-money"></i> &nbsp; $
 															{job.pay.toLocaleString("en-US", {
 																minimumFractionDigits: 2,
 															})}
@@ -117,15 +117,22 @@ const JobsListComponent = () => {
 													<td className="text-muted">
 														Shift and Schedule: <br />
 														<small style={{ fontSize: "11px" }}>
-															<i className="fa fa-chevron-right"></i> &nbsp;
+															<i
+																className="fa fa-clock-o"
+																aria-hidden="true"
+															></i>{" "}
+															&nbsp;
 															{job.shift} hour shift
 														</small>
 													</td>
 													<td className="text-muted">
 														<span>Type: </span> <br />
 														<small style={{ fontSize: "11px" }}>
-															<i className="fa fa-chevron-right"></i> &nbsp;
-															Full-time
+															<i
+																className="fa fa-briefcase"
+																aria-hidden="true"
+															></i>
+															&nbsp; Full-time
 														</small>
 													</td>
 													<td>
