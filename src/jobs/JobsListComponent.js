@@ -40,6 +40,13 @@ const JobsListComponent = () => {
 	const indexOfFirstJob = indexOfLastJob - jobsPerPage;
 	const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
 
+	// Check if the application is closed based on the postedDate
+	const isApplicationClosed = (postedDate) => {
+		const today = new Date();
+		const posted = new Date(postedDate);
+		return posted > today;
+	};
+
 	// Change page
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -159,13 +166,23 @@ const JobsListComponent = () => {
 														></i>
 														&nbsp;&nbsp;
 														<small className="text-muted">
-															{job.postedDate}
+															{job.postedDate} -{" "}
+															<small style={{ fontSize: "12px" }}>
+																{isApplicationClosed(job.postedDate)
+																	? "Application Closed"
+																	: "(Close date)"}
+															</small>
 														</small>
 													</td>
 													<td>
 														<Link
 															to={`${job.companyURL}`}
-															className="btn btn-outline-danger btn-sm"
+															className={`btn btn-outline-secondary btn-sm ${
+																isApplicationClosed(job.postedDate)
+																	? "disabled"
+																	: "btn btn-outline-danger btn-sm"
+															}`}
+															disabled={isApplicationClosed(job.postedDate)}
 														>
 															Apply
 														</Link>
