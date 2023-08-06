@@ -5,6 +5,11 @@
 .job-list .jobs {
 	background-color: #ffffff;
 }
+.disabled {
+	border: 1px solid #888 !important;
+	color: #888 !important;
+	cursor: no-drop !important;
+}
 
 /* Small devices (≥576px) and up */
 @media (min-width: 576px) {
