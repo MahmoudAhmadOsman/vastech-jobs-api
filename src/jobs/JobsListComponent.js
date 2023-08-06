@@ -44,7 +44,7 @@ const JobsListComponent = () => {
 	const isApplicationClosed = (postedDate) => {
 		const today = new Date();
 		const posted = new Date(postedDate);
-		return posted > today;
+		return posted < today;
 	};
 
 	// Change page
@@ -169,20 +169,19 @@ const JobsListComponent = () => {
 															{job.postedDate} -{" "}
 															<small style={{ fontSize: "12px" }}>
 																{isApplicationClosed(job.postedDate)
-																	? "Closing Date"
-																	: "(Application Closed)"}
+																	? "Application Closed"
+																	: "(Closing date)"}
 															</small>
 														</small>
 													</td>
 													<td>
 														<Link
 															to={`${job.companyURL}`}
-															className={`btn btn-outline-secondary btn-sm ${
+															className={`btn btn-outline-danger btn-sm ${
 																isApplicationClosed(job.postedDate)
 																	? "disabled"
-																	: "btn btn-outline-danger btn-sm"
+																	: ""
 															}`}
-															disabled={isApplicationClosed(job.postedDate)}
 														>
 															Apply
 														</Link>
