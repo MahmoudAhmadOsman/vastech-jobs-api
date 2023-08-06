@@ -68,10 +68,13 @@ const JobsListComponent = () => {
 							<div className="col-lg-12 col-md-12 col-sm-12 col-12">
 								<h2 className="text-dark">Find a job</h2> <hr />
 								<div className="table-responsive">
-									<table className="table table-borderless">
+									<table className="table table-borderless ">
 										<tbody>
 											{currentJobs.map((job) => (
-												<tr key={job.id} className="card mb-2 p-4">
+												<tr
+													key={job.id}
+													className="card mb-2 p-4 shadow-lg  bg-body rounded"
+												>
 													<td className="card-body">
 														<Link to={job.companyURL}>
 															<img
@@ -101,6 +104,29 @@ const JobsListComponent = () => {
 														</small>
 														<br />
 														<Link to={`${job.companyURL}`}>{job.title}</Link>
+													</td>
+													<td className="text-muted">
+														<span>Pays</span> <br />
+														<small style={{ fontSize: "11px" }}>
+															<i className="fa fa-chevron-right"></i> &nbsp; $
+															{job.pay.toLocaleString("en-US", {
+																minimumFractionDigits: 2,
+															})}
+														</small>
+													</td>
+													<td className="text-muted">
+														Shift and Schedule: <br />
+														<small style={{ fontSize: "11px" }}>
+															<i className="fa fa-chevron-right"></i> &nbsp;
+															{job.shift} hour shift
+														</small>
+													</td>
+													<td className="text-muted">
+														<span>Type: </span> <br />
+														<small style={{ fontSize: "11px" }}>
+															<i className="fa fa-chevron-right"></i> &nbsp;
+															Full-time
+														</small>
 													</td>
 													<td>
 														{expandedJobId === job.id ? (
