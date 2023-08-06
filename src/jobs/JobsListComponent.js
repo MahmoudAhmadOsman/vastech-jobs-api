@@ -111,7 +111,7 @@ const JobsListComponent = () => {
 																	className="btn btn-link p-0"
 																	onClick={() => toggleJobDescription(job.id)}
 																>
-																	Read less
+																	See less
 																</button>
 															</>
 														) : (
@@ -135,7 +135,7 @@ const JobsListComponent = () => {
 																				toggleJobDescription(job.id)
 																			}
 																		>
-																			Read more
+																			See more
 																		</button>
 																	</>
 																)}
