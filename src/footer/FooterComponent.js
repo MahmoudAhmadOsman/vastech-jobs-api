@@ -47,12 +47,10 @@ const FooterComponent = () => {
 							{/* Content */}
 							<h6 className="text-uppercase fw-bold mb-4">
 								<i className="fa fa-gem me-3" />
-								Vast Burgers
+								VADTECH JOBS
 							</h6>
 							<p>
-								Mahmoud Osman, a seasoned full stack software engineer with
-								extensive experience in the field, has spearheaded the
-								development of this project.
+								Mahmoud Osman is the designer and developer behind this project.
 							</p>
 						</div>
 						{/* Grid column */}
