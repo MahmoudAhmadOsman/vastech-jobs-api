@@ -80,7 +80,7 @@ const JobsListComponent = () => {
 															<img
 																className="img-fluid rounded-circle img-thumbnail mb-2"
 																src={job.compnayLogo}
-																alt={job.title}
+																alt={job.compnayLogo}
 																title={job.companyName}
 															/>
 														</Link>
