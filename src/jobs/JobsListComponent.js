@@ -10,7 +10,7 @@ const JobsListComponent = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [jobsPerPage] = useState(8); // Set the number of jobs per page
+	const [jobsPerPage] = useState(6); // Set the number of jobs per page
 
 	const [expandedJobId, setExpandedJobId] = useState(null);
 
