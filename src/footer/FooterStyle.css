@@ -4,3 +4,11 @@
 	background-color: #050c20;
 	color: #fff;
 }
+.footer .copy-right {
+	font-size: 11px;
+	color: #888;
+}
+.footer .copy-right > a {
+	font-size: 11px;
+	color: #ff8901;
+}

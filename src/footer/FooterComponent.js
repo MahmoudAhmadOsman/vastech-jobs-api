@@ -128,11 +128,11 @@ const FooterComponent = () => {
 			{/* Section: Links  */}
 			{/* Copyright */}
 			<div
-				className="text-center p-4"
+				className="copy-right text-center p-4"
 				style={{ backgroundColor: "rgba(255 255 255 / 5%)" }}
 			>
 				&copy; VASTECH JOBS, INC. {new Date().getFullYear()}. All rights
-				reserved. &nbsp; Desgined & built by &nbsp;
+				reserved. &nbsp; Desgined & developed by &nbsp;
 				<Link
 					to="http://www.mahmoudosman.com"
 					target="_blank"
