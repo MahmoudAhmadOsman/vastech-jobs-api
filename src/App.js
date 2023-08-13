@@ -10,7 +10,7 @@ import NotFound from "./utils/NotFound";
 import Loading from "./utils/Loading";
 
 import { setLoadingInterceptor } from "./interceptors/loadingInterceptor";
-import { useLoading } from "./hooks/useLoading";
+import { useLoading } from "./context/useLoading";
 import JobsListComponent from "./jobs/JobsListComponent";
 
 function App() {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./LoadingStyle.css";
-import { useLoading } from "../hooks/useLoading";
+import { useLoading } from "../context/useLoading";
 const Loading = () => {
 	// const { isLoading } = useLoading();
 	// if (!isLoading) return;
