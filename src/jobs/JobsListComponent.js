@@ -25,9 +25,14 @@ const JobsListComponent = () => {
 			setLoading(false);
 		} catch (error) {
 			setError(error);
-			toast.warn(`An Error ${error} has occurred!!`, {
-				position: "top-right",
-			});
+
+			toast.warn(
+				`An Error ${error} has occurred while while fetching the data!!`,
+				{
+					position: "top-right",
+				}
+			);
+			console.log(`An Error ${error} has occurred`);
 		}
 	};
 

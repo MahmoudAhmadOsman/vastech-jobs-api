@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -8,9 +8,16 @@ import HomeComponent from "./home/HomeComponent";
 import NotFound from "./utils/NotFound";
 
 import Loading from "./utils/Loading";
-import JobsComponent from "./jobs/JobsListComponent";
+
+import { setLoadingInterceptor } from "./interceptors/loadingInterceptor";
+import { useLoading } from "./hooks/useLoading";
+import JobsListComponent from "./jobs/JobsListComponent";
 
 function App() {
+	// const { showLoading, hideLoading } = useLoading();
+	// useEffect(() => {
+	// 	setLoadingInterceptor({ showLoading, hideLoading });
+	// }, []);
 	const [loading, setLoading] = useState(true);
 
 	return (
@@ -23,17 +30,15 @@ function App() {
 					{setLoading(false)}
 				</>
 			) : (
-				<>
+				<React.Fragment>
 					<Navigation />
-					<React.Fragment>
-						<Routes>
-							<Route path="/jobs" element={<JobsComponent />} />
-							<Route path="/" exact element={<HomeComponent />} />
-							<Route path="*" element={<NotFound />} />
-						</Routes>
-					</React.Fragment>
+					<Routes>
+						<Route path="/jobs" element={<JobsListComponent />} />
+						<Route path="/" exact element={<HomeComponent />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
 					<FooterComponent />
-				</>
+				</React.Fragment>
 			)}
 		</BrowserRouter>
 	);
