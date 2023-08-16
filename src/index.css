@@ -11,7 +11,12 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
-
+@media print {
+	body {
+		background-color: #fff !important;
+		display: none !important;
+	}
+}
 /* =========  Spinner style =================  */
 
 .loading-template {
