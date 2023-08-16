@@ -27,6 +27,7 @@
 		width: 60px;
 		background-color: #e8e8e8;
 		border: 1px solid #e8e8e8;
+		
 	}
 }
 
@@ -36,7 +37,7 @@
 		width: 60px;
 		background-color: #e8e8e8;
 		border: 1px solid #e8e8e8;
-		-color: #ededed;
+		background-color: #ededed;
 	}
 }
 
@@ -45,6 +46,7 @@
 	.job-list .jobs img {
 		width: 60px;
 		background-color: #e8e8e8;
+		
 		border: 1px solid #e8e8e8;
 	}
 }
