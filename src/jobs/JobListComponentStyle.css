@@ -25,7 +25,8 @@
 @media (min-width: 576px) {
 	.job-list .jobs img {
 		width: 60px;
-		background-color: #ededed;
+		background-color: #e8e8e8;
+		border: 1px solid #e8e8e8;
 	}
 }
 
@@ -33,7 +34,9 @@
 @media (min-width: 768px) {
 	.job-list .jobs img {
 		width: 60px;
-		background-color: #ededed;
+		background-color: #e8e8e8;
+		border: 1px solid #e8e8e8;
+		-color: #ededed;
 	}
 }
 
@@ -41,7 +44,8 @@
 @media (min-width: 992px) {
 	.job-list .jobs img {
 		width: 60px;
-		background-color: #ededed;
+		background-color: #e8e8e8;
+		border: 1px solid #e8e8e8;
 	}
 }
 
@@ -49,7 +53,8 @@
 @media (min-width: 1200px) {
 	.job-list .jobs img {
 		width: 60px;
-		background-color: #ededed;
+		background-color: #e8e8e8;
+		border: 1px solid #e8e8e8;
 	}
 }
 
@@ -57,6 +62,7 @@
 @media (min-width: 1400px) {
 	.job-list .jobs img {
 		width: 60px;
-		background-color: #ededed;
+		background-color: #e8e8e8;
+		border: 1px solid #e8e8e8;
 	}
 }
