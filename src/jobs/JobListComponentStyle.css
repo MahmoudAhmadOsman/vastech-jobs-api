@@ -11,7 +11,12 @@
 	cursor: no-drop !important;
 }
 .job-list .fa {
-	color: #d714cb;
+	/* color: #d714cb; */
+	color: #323232;
+	background: #e8e8e8;
+	text-align: center;
+	padding: 5px;
+	border-radius: 50%;
 	font-weight: bold;
 }
 
