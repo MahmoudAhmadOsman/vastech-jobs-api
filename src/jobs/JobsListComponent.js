@@ -92,7 +92,7 @@ const JobsListComponent = () => {
 													</td>
 													<td>
 														<small
-															className="text-muted"
+															className="text-muted text-uppercase"
 															style={{ fontSize: "10px" }}
 														>
 															Company Name
