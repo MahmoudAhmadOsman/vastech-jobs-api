@@ -1,20 +1,42 @@
-.site_navigation {
-	position: relative;
+.site-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
 }
 
-.nav-shopping-cart {
-	position: relative;
+.navbar-brand {
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.nav-shopping-cart button .badge {
-	margin: 6px 0px 0px -14px;
-	width: 15px;
-	height: 15px;
-	font-size: 9px;
-	text-align: center;
+.navbar-brand:hover {
+  transform: scale(1.02);
 }
 
-.site_navigation nav ul.navbar-nav li a {
-	font-weight: normal;
-	font-family: "Helvetica Neue", "Helvetica";
+.nav-link {
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  margin: 0 2px;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link i {
+  width: 20px;
+  text-align: center;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding-top: 15px;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+    margin: 2px 0;
+  }
 }
