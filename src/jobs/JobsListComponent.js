@@ -248,14 +248,14 @@ const JobsListComponent = () => {
                     <h5>Job Details</h5>
                     <div className="details-grid">
                       <div className="detail-item">
-                        <i className="fa fa-money-bill"></i>
+                        <i className="fa fa-money"></i>
                         <div>
                           <span>Salary</span>
                           <strong>${selectedJob.pay.toLocaleString()}</strong>
                         </div>
                       </div>
                       <div className="detail-item">
-                        <i className="fa fa-clock"></i>
+                        <i className="fa fa-clock-o"></i>
                         <div>
                           <span>Shift</span>
                           <strong>{selectedJob.shift} hour shift</strong>
